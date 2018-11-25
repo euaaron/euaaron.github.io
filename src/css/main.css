@@ -233,12 +233,18 @@ footer a:hover {text-decoration: none;}
 
 .github {
   position: relative;
-  top: 5px;
   /* right: 2em */
   width: 350px;
-  height: 700px;
+  height: 100%;
+}
+
+.gitbox {
+  position: relative;
+  top: 10px;
+  text-align: justify;
+  width: 350px;
   float: right;
-  border: solid #242424 1px;
+  color: #242424;
 }
 
 .darker {background-color: #242424 !important;}
