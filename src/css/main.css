@@ -195,7 +195,9 @@ footer a:hover {text-decoration: none;}
   letter-spacing: 3px !important;
 }
 
-.article-footer {top: -15px;}
+.article-footer {
+  padding-bottom: 10px;
+  top: -15px;}
 
 .article-footer * {
   position: relative;
@@ -355,8 +357,10 @@ footer a:hover {text-decoration: none;}
 }
 
 .header fb-share-button {
-position: relative;
-  float: left;
+  display: block;
+  position: relative;
+  float: right;
+  right: 0px;
   bottom: 0px;
 }
 
