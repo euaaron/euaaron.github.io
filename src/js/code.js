@@ -2,7 +2,7 @@ GitHubActivity.feed({
 	username: "euaaron",
 	repository: "euaaron.github.io", //optional
 	selector: "#feed",
-	limit: 2 //optional
+	limit: 6 //optional
 });
 
 var data = new Date();
