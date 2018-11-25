@@ -204,27 +204,14 @@ footer a:hover {text-decoration: none;}
 
 .article-footer span {color: #1b77b3;}
 
-.warning {
-  background: red;
-  color: white;
+.alert {
   display: block;
   bottom: 0px;
   height: auto;
   width: 100%;
 }
 
-.warning div {position: relative;}
-
-.warning i {
-  right: 10px;
-  font-size: 32px;
-  position: absolute;
-  bottom: 10px;
-}
-
-.warning a {color: white;}
-
-.warning a:hover {color: #ff4e4e;}
+.alert div {position: relative;}
 
 .article-footer h6 {
   color: #cdcdcd;
@@ -250,14 +237,6 @@ footer a:hover {text-decoration: none;}
 }
 
 .stickbar {border-bottom: solid #1b77b3 5px;}
-
-.stickbar-item {
-  border-bottom: solid #1b77b3 5px;
-}
-
-.stickbar-item:hover {
-  border-bottom: solid #d2d2d2 5px;
-}
 
 .author {
   background-color: #1b77b3;
@@ -336,30 +315,6 @@ footer a:hover {text-decoration: none;}
 }
 
 /* Animações  */
-.fade {
-  -moz-animation-name: fade;
-  -moz-animation-duration: 1.5s;
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-moz-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
 
 @-webkit-keyframes textSlide {
    from {
@@ -384,7 +339,6 @@ footer a:hover {text-decoration: none;}
   color: #ea3838;
 }
 
-
 /* Bootstrap adjusts ------------------------------------------------- */
 
 .header {
@@ -397,15 +351,25 @@ footer a:hover {text-decoration: none;}
   background-clip: border-box;
   background-position: center;
   color: #f1f1f1 !important;
-  margin-top: 40px;
   height: 256px;
 }
 
-.nav-link {color: #fff;}
-
-.no-border-radius {
-  border-radius: 0px !important;
+.alert-danger {
+  background: #ba4848 !important;
+  color: #ffc8c8 !important;
 }
+
+.alert div {
+  float: left;
+  text-align: justify;
+}
+
+.nav-link {
+  color: #fff;
+  border-style: none !important;
+}
+
+.no-border-radius {border-radius: 0px !important;}
 
 .nav-link:hover {color: #f1f1f1;}
 

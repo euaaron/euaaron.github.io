@@ -4,8 +4,8 @@ document.getElementById('ano').innerHTML = data.getFullYear();
 var blog = document.getElementById('blog');
 var projetos = document.getElementById('projetos');
 var faculdade = document.getElementById('faculdade');
-var btnswitch = document.getElementById('menu_btn');
-var subtitle = document.getElementById('page_subtitle');
+var btnswitch = document.getElementById('menuBtn');
+var subtitle = document.getElementById('pageSubtitle');
 
 if (btnswitch.classList.contains("active")) {
   btnswitch.style.backgroundColor = "#1b77b3";
@@ -48,4 +48,10 @@ function show_player() {
   } else {
     showplayer.style.display = "none";
   }
+}
+
+var close = document.getElementById("alert");
+
+function close_alert() {
+  close.style.display = "none";
 }
