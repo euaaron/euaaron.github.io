@@ -1,60 +1,280 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta charset="utf-8"/>
-        <meta name="author" content="Aaron Stiebler"/>
-        <meta name='date' content='15 de Setembro de 2018'>
-        <meta name='search_date' content='2018-09-15'>
-        <meta name="keywords" content="aaron,stiebler,inovação,inovation,inovacao,tech,tecnologia,technology,si,sistemas,info,informatica,informática,informacao,informação,information,estudante,portifólio,portifolio,brain,neural,system,sistema,juiz de fora,jf,startup,computação,neuro,computing">
-        <meta name="description" content="Portifólio online do estudante de Sistemas de Informação, Aaron Stiebler.">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Relbeits.net | Início</title>
-        <!-- Bootstrap's CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!-- Glyphicons -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Roboto|Playfair+Display:700,900" rel="stylesheet">
-    </head>
-    <body>
-        <style>
-            body {
-                background-color: aliceblue;
-                font-family: 'Bubblegum Sans', cursive;
-                text-align: center;
-            }
-            h3 {
-                font-family: 'Roboto', sans-serif;
-            }
-            .aviso span {
-                text-transform: uppercase;
-            }.aviso {margin-top:15%;}
-            footer {            
-                position: absolute;
-                bottom: 0px;
-            }
-        </style>
-        <div class="aviso">
-            <h1>Você está em <span>relbeits.net</span></h1>
-            <h3>Mas o site está em manutenção...<br/> Volte mais tarde.</h3>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RELBEITS</title>
+    <meta name="description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_).">
+    <meta name="image" content="src/img/logo_square.jpg">
+    <!-- Estilos Offline -->
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
+    <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+    <!-- Estilos Online -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <!-- Web Fonts and Glyphs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url"           content="http://www.relbeits.net/index.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="RELBEITS" />
+    <meta property="og:description"   content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_)." />
+    <meta property="og:image"         content="http://www.relbeits.net/src/img/logo_square.jpg" />
+
+  </head>
+  <body>
+    <!-- Facebook SDK Loader -->
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div id="loader-wrapper">
+      <div id="loader">
+
+      </div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top bg-dark no-padding stickbar topbar no-border-radius" role="navigation">
+      <div class="container justify-content-between">
+        <ul class="nav">
+          <li class="nav-item stickbar-item active" id="menu_btn" onclick="goto_blog()" title="blog">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item stickbar-item disabled" id="menu_btn" title="projetos">
+            <a class="nav-link disabled" href="#">Projetos</a>
+          </li>
+          <li class="nav-item stickbar-item" id="menu_btn" onclick="goto_faculdade()" title="faculdade">
+            <a class="nav-link" href="#">Faculdade</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="alert warning fixed-bottom" id="maintence_alert">
+      <div class="container">
+        <h4>ATENÇÃO!</h4>
+        <p>ESTE SITE AINDA ESTÁ EM PROCESSO DE CONSTRUÇÃO E PODERÁ SER ALTERADO SEM AVISO PRÉVIO! ALÉM DE ESTAR INCOMPLETO.</p>
+      </div>
+      <a href="#" onclick="close_alert()"><i class="far fa-times-circle"></i></a>
+    </div>
+
+    <!-- Cabeçalho -->
+    <div class="header jumbotron text-center">
+      <div class="container">
+        <span class="logo"></span>
+        <h5 id="page_subtitle">O blog daquele cara chato.</h5>
+      </div>
+    </div>
+
+    <!-- Player -->
+    <div id="musicPlayer" alt="Player de Música">
+      <div class="playerControls">
+        <div class="container text-center">
+          <h4>Desculpe, o player ainda não foi criado.</h4>
+          <h6>Clique nos fones novamente para essa barra desaparecer.</h6>
         </div>
-        <!-- Rodapé -->
-        <footer class="mastfoot mt-auto">
-                <div class="container">
-                    <div class="float-left">
-                        <a href="https://www.linkedin.com/in/relbeits/" class="social-icon"><span class="fab fa-linkedin"></span></a>
-                        <a href="https://fb.com/relbeits" class="social-icon"><span class="fab fa-facebook"></span></a>
-                        <a href="https://www.instagram.com/relbeits_/" class="social-icon"><span class="fab fa-instagram"></span></a>
-                        <a href="https://www.deviantart.com/aarongdev" class="social-icon"><span class="fab fa-deviantart"></span></a>
-                    </div>
-                    <div class="float-right">
-                        <p>© 2018 <a href="../../pag/blog#sobre">Aaron Stiebler C. da Silva</a>, sobre a <a href="../../pag/mit/">Licença MIT.</a></p>
-                    </div>
+      </div>
+      <div class="container">
+        <marquee direction="left">
+          <p id="musicTitle">Não há nenhuma música sendo reproduzida. Aperte o play para iniciar a playlist.</p>
+        </marquee>
+      </div>
+    </div>
+    <a onclick="show_player()" href="#"><i class="fas fa-headphones" id="headphones" title="Ouça as minhas músicas favoritas enquanto lê o quê escrevi. Clique aqui!"></i></a>
+
+    <!-- Principal -->
+    <div class="content">
+      <!-- BLOG ------------------------------------------------------------------------------>
+      <div id="blog">
+        <div class="container">
+          <div class="article">
+
+            <div class="article-date text-center" id="ViPER">
+              <h2>23</h2><!-- Dia ------------------------------------------------------------>
+              <p>NOV</p><!-- Mês ------------------------------------------------------------->
+            </div>
+            <div class="article-title">
+              <h3>Áudio Estonteante</h3><!-- Título ------------------------------------------>
+            </div>
+            <!-- TEXTO ----------------------------------------------------------------------->
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Se assim como eu, você não consegue viver sem música,
+              possívelmente já deve ter mechido alguma vez no equalizador do seu android e talvez tenha se decepcionado
+              com as poucas mudanças que ele traz às nossas amadas playlists. Por isso, uma equipe de desenvolvetores amantes
+              do áudio rítmico, formada por... Ler mais.</p>
+            <hr>
+            <div class="article-footer">
+              <div class="fb-share-button"
+                data-href="http://www.relbeits.net/index.html#ViPER"
+                data-layout="button_count">
+              </div>
+              <i class="fas fa-share-alt"></i>
+              <!-- Your share button code -->
+
+              <span>Comentar</span>
+              <h6 class="text-right">por relbeits_</h6><!-- Autor --------------->
+            </div>
+          </div>
+          <div class="article">
+            <div class="article-date">
+              <h2>19</h2><!-- Dia ----------------------------------------------------------->
+              <p>NOV</p><!-- Mês ------------------------------------------------------------>
+            </div>
+            <div class="article-title">
+              <h3>"Hello World"</h3><!-- Título --------------------------------------------->
+            </div>
+            <!-- TEXTO --------------------------------------------------------------------->
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Assim como todo primeiro projeto de um iniciante à codificação ou programação, não poderia iniciar esse blog de outra forma, senão entitulando a primeira postagem como "Hello World" ou "Olá Mundo". Se você me conhece, deve estar se perguntando o motivo de ter feito esse site, e caso não me conheça, também deve querer saber pra quê esse site existe. Se você tem essa dúvida, espero que ela seja solucionada com a explicação à seguir:</p>
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao fim do 2° período de Sistemas de Informação, o professor de "Desenvolvimento Web" pede como <b>trabalho final</b> a criação de um site com "padrão comercial", algo que seria de fato usado por alguém ou por alguma empresa, um site "real". E é por esse e outros motivos que esse site foi criado.</p>
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao contrário da maioria dos sites encontrados na internet, criei ess site tentando seguir o padrão de página única, onde todo o conteúdo do site será apresentando em um <b>único arquivo .html</b>. Por isso, o site tende a ter um carregamento inicial lento, mas ao carregar uma vez, espera-se que tudo funcione instantâneamente.</p>
+            <hr>
+            <h6 class="article-author text-right">por relbeits_</h6><!-- Autor ------------->
+          </div>
+          <div id="disqus_thread" title="chat"></div>
+          <script>
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+          /*
+          var disqus_config = function () {
+            this.page.url = "relbeits.net";  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://relbeits.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Por favor, ative o javascript para ver os <a href="https://disqus.com/?ref_noscript">comentários do Disqus.</a></noscript>
+        </div>
+      </div>
+      </div>
+
+      <div id="projetos">
+
+      </div>
+
+      <!-- Faculdade --------------------------------------------------------------------------------------------------------------------------------->
+      <div id="faculdade">
+          <div class="article">
+            <div class="container text-center">
+            <h4>Desculpe, ainda não há conteúdo nesta aba... Volte em alguns dias.</h4>
+            </div>
+        </div>
+      </div>
+
+    <!-- Sobre o autor / Contato -->
+    <div class="author">
+      <div class="author_title text-center">
+        <h4>Sobre o Autor</h4>
+      </div>
+      <div class="container" id="autor">
+        <table id="author_field">
+          <tr>
+            <td>
+              <span class="author-img" title="Aaron Stiebler"></span>
+            </td>
+            <td>
+              <div class="author_text" >
+                <div class="text-justify" title="Sobre o Autor">
+                  <br/>
+                  <p><span id="em2">N</span>atural de Petrópolis/RJ, Aaron Stiebler C. da Silva, de <span id="authorAge">22</span> anos, sonha em trabalhar com neuro-computação aplicada à realidade virtual e para iniciar seus estudos ingressou no curso de Bacharelado em Sistemas de Informação no <a href="http://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG - Campus Juiz de Fora</a>, onde é bolsista de Produção Audiovisual. Se tudo der errado ele não descarta a possibilidade de seguir a carreira cinematográfica.</p>
                 </div>
-            </footer> 
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
-    </body>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container" id="contato">
+        <table class="contato">
+          <thead>
+            <tr>
+              <th colspan="10">
+                <p>Contato:</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="social_mail">
+                <a class="social_link" href="mailto:aaron.relbeits@gmail.com?Subject=RELBEITS.net" target="_blank" title="E-mail">
+                  <i class="fas fa-at"></i>
+                </a>
+              </td>
+              <td id="social_face">
+                <a class="social_link" href="http://fb.com/relbeits" target="_blank" title="Facebook">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </td>
+              <td id="social_insta">
+                <a class="social_link"  href="http://instagram.com/relbeits_" target="_blank" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </td>
+              <td id="social_dvart">
+                <a class="social_link"  href="http://aarongdev.deviantart.com" target="_blank" title="DeviantArt">
+                  <i class="fab fa-deviantart"></i>
+                </a>
+              </td>
+              <td id="social_tube">
+                <a class="social_link" href="http://youtube.com/RelbeitsChannel" target="_blank" title="Youtube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </td>
+              <td id="social_git">
+                <a class="social_link" href="http://github.com/euaaron" target="_blank" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </td>
+              <td class="void"></td>
+              <td class="address">
+                <h5><i class="fas fa-map-marker-alt"></i> Endereço</h5>
+                <p>Av. Olegário Maciel 1835/416, Paineiras - Juiz de Fora/MG, Brasil <br/> CEP: 36016-011</p>
+              </td>
+              <td class="void"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="copyright text-center">
+          <br/>
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR"><img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+          <br/>
+          <br/>
+          <p>Este site mal feito está licenciado com uma Licença <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR">Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>.</p>
+          <p>&copy; <span id="ano">2018</span> Aaron Stiebler C. da Silva</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Meus Scripts -->
+    <script src="src/js/blog.js"></script>
+    <script src="src/js/loader.js"></script>
+    <script src="src/js/code.js"></script>
+    <!-- Frameworks e Plugins offlines -->
+    <script src="src/js/bootstrap.min.js"></script>
+    <script src="src/js/jquery-slim.min.js"></script>
+    <!-- Frameworks e Plugins onlines -->
+    <script id="dsq-count-scr" src="//relbeits.disqus.com/count.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+  </body>
 </html>
