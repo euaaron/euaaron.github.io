@@ -7,6 +7,12 @@
     <title>RELBEITS</title>
     <meta name="description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_).">
     <meta name="image" content="src/img/logo_square.jpg">
+    <!-- GitHub feed dependecies -->
+    <link rel="alternate" type="application/atom+xml" href="https://github.com/euaaron/euaaron.github.io/commits/master.atom" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="src/css/github-activity-0.1.5.min.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="src/js/github-activity-0.1.5.min.js"></script>
     <!-- Meus Estilos -->
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
     <!-- CSS Frameworks -->
@@ -40,9 +46,6 @@
       <div id="loader">
 
       </div>
-
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
     </div>
 
     <!-- Navbar -->
@@ -78,6 +81,9 @@
         <span class="logo"></span>
         <h5 id="pageSubtitle">O blog daquele cara chato.</h5>
       </div>
+
+      <div id="feed"></div>
+
     </div>
 
     <!-- Player -->
@@ -102,7 +108,6 @@
       <div id="blog">
         <div class="container">
           <div class="article">
-
             <div class="article-date text-center" id="ViPER">
               <h2>23</h2><!-- Dia ------------------------------------------------------------>
               <p>NOV</p><!-- Mês ------------------------------------------------------------->
@@ -112,18 +117,16 @@
             </div>
             <!-- TEXTO ----------------------------------------------------------------------->
             <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Se assim como eu, você não consegue viver sem música,
-              possívelmente já deve ter mexido alguma vez no equalizador do seu android e talvez tenha se decepcionado
+              possivelmente já deve ter mexido alguma vez no equalizador do seu android e talvez tenha se decepcionado
               com as poucas mudanças que ele traz às nossas amadas playlists. Por isso, uma equipe de desenvolvetores amantes
               do áudio rítmico, formada por... Ler mais.</p>
             <hr>
             <div class="article-footer">
-              <div class="fb-share-button"
-                data-href="http://www.relbeits.net/index.html#ViPER"
-                data-layout="button_count">
-              </div>
               <h6 class="text-right">por relbeits_</h6><!-- Autor --------------->
             </div>
           </div>
+          <div id="disqus_thread" title="chat"></div>
+
           <div class="article">
             <div class="article-date text-center" id="hello_world">
               <h2>19</h2><!-- Dia ----------------------------------------------------------->
@@ -138,10 +141,6 @@
             <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao contrário da maioria dos sites encontrados na internet, criei ess site tentando seguir o padrão de página única, onde todo o conteúdo do site será apresentando em um <b>único arquivo .html</b>. Por isso, o site tende a ter um carregamento inicial lento, mas ao carregar uma vez, espera-se que tudo funcione instantâneamente.</p>
             <hr>
             <div class="article-footer">
-              <div class="fb-share-button"
-                data-href="http://www.relbeits.net/index.html#hello_world"
-                data-layout="button_count">
-              </div>
               <h6 class="text-right">por relbeits_</h6><!-- Autor ------------->
             </div>
           </div>
@@ -150,12 +149,12 @@
           /**
           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-          /*
+
           var disqus_config = function () {
             this.page.url = "relbeits.net";  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            this.page.identifier = "/index"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
           };
-          */
+
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
             s.src = 'https://relbeits.disqus.com/embed.js';
@@ -271,6 +270,8 @@
     <!-- Meus Scripts -->
     <script src="src/js/loader.js"></script>
     <script src="src/js/code.js"></script>
+    <!-- Github rss feed dependencies -->
+
     <!-- Frameworks e Plugins offlines -->
     <script src="src/js/tether.min.js"></script>
     <script src="src/js/bootstrap.min.js"></script>

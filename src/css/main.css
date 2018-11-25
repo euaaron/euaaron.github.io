@@ -195,7 +195,10 @@ footer a:hover {text-decoration: none;}
   letter-spacing: 3px !important;
 }
 
-.article-footer {top: -15px;}
+.article-footer {
+  top: -15px;
+  padding-bottom: 15px;
+}
 
 .article-footer * {
   position: relative;

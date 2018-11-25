@@ -1,3 +1,10 @@
+GitHubActivity.feed({
+	username: "euaaron",
+	repository: "euaaron.github.io", //optional
+	selector: "#feed",
+	limit: 4 //optional
+});
+
 var data = new Date();
 document.getElementById('ano').innerHTML = data.getFullYear();
 
