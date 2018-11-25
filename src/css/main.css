@@ -230,6 +230,12 @@ footer a:hover {text-decoration: none;}
   height: 30px;
 }
 
+.github {
+  position: relative;
+  width: 200px;
+  float: right;
+}
+
 .darker {background-color: #242424 !important;}
 
 .nav-item {margin-bottom: -5px;}
