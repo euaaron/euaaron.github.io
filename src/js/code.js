@@ -4,12 +4,25 @@ document.getElementById('ano').innerHTML = data.getFullYear();
 var blog = document.getElementById('blog');
 var projetos = document.getElementById('projetos');
 var faculdade = document.getElementById('faculdade');
-var btnswitch = document.getElementById('menuBtn');
+var btn = document.getElementById('menuBtn');
+var ativ1 = document.getElementById('ativ1');
+var ativ3 = document.getElementById('ativ3');
+var ativ4 = document.getElementById('ativ4');
+var ativ7 = document.getElementById('ativ7');
+var js1 = document.getElementById('js1');
 var subtitle = document.getElementById('pageSubtitle');
 
-if (btnswitch.classList.contains("active")) {
-  btnswitch.style.backgroundColor = "#1b77b3";
+if (btn.classList.contains("active")) {
+  btn.style.backgroundColor = "#1b77b3";
 }
+
+btn.style.cursor = "pointer";
+btnVoltar.style.cursor = "pointer";
+ativ1.style.cursor = "pointer";
+ativ3.style.cursor = "pointer";
+ativ4.style.cursor = "pointer";
+ativ7.style.cursor = "pointer";
+js1.style.cursor = "pointer";
 
 function goto_blog() {
     blog.style.display = "block";
@@ -31,10 +44,10 @@ function goto_faculdade() {
     projetos.style.display = "none";
     subtitle.innerHTML = "\"Ah, então é isso que o meu filho faz na faculdade!\", mãe do autor.";
 
-    if (btnswitch.title != "faculdade") {
-      btnswitch.classList.remove("active");
+    if (btn.title != "faculdade") {
+      btn.classList.remove("active");
     } else {
-      btnswitch.classList.add("active");
+      btn.classList.add("active");
     }
 
 }

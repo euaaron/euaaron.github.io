@@ -10,9 +10,33 @@ footer {
   position: relative;
 }
 
+#btnVoltar {
+  position: fixed;
+  text-align: center;
+  width: auto;
+  height: auto;
+  right: 5%;
+  font-size: 2em;
+  color: #1b77b3;
+  bottom: 5%;
+  display: none;
+}
+
 footer a {color: #f1f1f1;}
 
 footer a:hover {text-decoration: none;}
+
+#loader iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+#site {
+  display: none;
+}
 
 #musicPlayer {
   background-color: #222222;
@@ -206,14 +230,28 @@ footer a:hover {text-decoration: none;}
 
 .article-footer span {color: #1b77b3;}
 
-.alert {
-  display: block;
-  bottom: 0px;
+.maintence {
+  position: absolute !important;
+  bottom: 10px;
+  width: 80%;
   height: auto;
-  width: 100%;
+  display: inline-block;;
+  margin: 0 auto;
 }
 
-.alert div {position: relative;}
+.maintence button {
+  position: absolute !important;
+  margin: 0.5% 1%;
+}
+
+.maintence div {
+  display: inline-block;
+  position: relative;
+}
+
+.maintence div h4 {
+  width: auto !important;
+}
 
 .article-footer h6 {
   color: #cdcdcd;
@@ -362,6 +400,10 @@ footer a:hover {text-decoration: none;}
   float: right;
   right: 0px;
   bottom: 0px;
+}
+
+#alert {
+  position: fixed !important;
 }
 
 .alert-danger {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -9,12 +8,14 @@
     <meta name="description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_).">
     <meta name="image" content="src/img/logo_square.jpg">
     <!-- Meus Estilos -->
+    <link rel="stylesheet" type="text/css" href="src/css/faculdade.css">
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
-    <!-- CSS Frameworks -->
+    <!-- CSS de terceiros -->
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" type="text/css" href="src/css/tether.min.css">
     <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <!-- Web Fonts and Glyphs -->
+    <!-- Glyphicons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Facebook Meta Tags -->
     <meta property="og:url"           content="http://www.relbeits.net/" />
@@ -25,7 +26,18 @@
     <!-- Jquery -->
     <script src="src/js/jquery.min.js"></script>
   </head>
-  <body>
+  <body onload="setTimeout(loaded, 6)">
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+      <div id="loader">
+        <iframe src="http://euaaron.github.io/site" id="otherPage"></iframe>
+      </div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <div id="site">
     <!-- Facebook SDK Loader -->
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
@@ -36,15 +48,6 @@
       js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
-    <div id="loader-wrapper">
-      <div id="loader">
-
-      </div>
-
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-dark no-padding stickbar topbar" role="navigation">
@@ -63,8 +66,8 @@
       </div>
     </nav>
 
-    <div class="alert alert-danger fixed-bottom alert-dismissible" role="alert" id="alert">
-      <div class="container text-center">
+    <div class="alert maintence alert-danger fixed-bottom alert-dismissible" role="alert" id="alert">
+      <div class="text-center container">
         <h4>ATENÇÃO!</h4>
         <p>ESTE SITE AINDA ESTÁ EM PROCESSO DE CONSTRUÇÃO E PODERÁ SER ALTERADO SEM AVISO PRÉVIO! ALÉM DE ESTAR INCOMPLETO.</p>
       </div>
@@ -170,12 +173,53 @@
       </div>
 
       <!-- Faculdade --------------------------------------------------------------------------------------------------------------------------------->
-      <div id="faculdade">
-          <div class="article">
-            <div class="container text-center">
-            <h4>Desculpe, ainda não há conteúdo nesta aba... Volte em alguns dias.</h4>
+      <div id="faculdade" align="center">
+          <!-- Atividade 1 -->
+          <div class="atividade col-4" id="ativ1" onclick="atividade_1()" >
+            <div class="container">
+              <h3 class="text-center">Atividade 1</h3>
+              <hr>
+              <p class="text-justify">&nbsp;Finge que aqui tem a descrição do exercício indicando o que deve ser feito...
+              </p>
             </div>
-        </div>
+          </div>
+          <!-- Atividade 2 -->
+          <div class="atividade col-3" id="ativ3" onclick="atividade_3()" >
+            <div class="container text-center">
+              <h3>Atividade 3</h3>
+              <hr>
+              <p>Testando mapas clicáveis.
+              </p>
+            </div>
+          </div>
+          <!-- Atividade 3 -->
+          <div class="atividade col-4" id="ativ4" onclick="atividade_4()" >
+            <div class="container text-center">
+              <h3>Atividade 4</h3>
+              <hr>
+              <p>Insersão múltimídia no html.
+              </p>
+            </div>
+          </div>
+          <!-- Atividade 7 -->
+          <div class="atividade col-4" id="ativ7" onclick="atividade_7()" >
+            <div class="container text-center">
+              <h3>Atividade 7</h3>
+              <hr>
+              <p>Introdução ao CSS, parte 2.
+              </p>
+            </div>
+          </div>
+          <!-- Javascript 1 -->
+          <div class="atividade col-3" id="js1" onclick="javascript_1()" >
+            <div class="container text-center">
+              <h3>Javascript 1</h3>
+              <hr>
+              <p>Insersão múltimídia no html.
+              </p>
+            </div>
+          </div>
+
       </div>
 
     <!-- Sobre o autor / Contato -->
@@ -264,7 +308,12 @@
           <p>&copy; <span id="ano">2018</span> Aaron Stiebler C. da Silva</p>
         </div>
       </div>
+      </div>
     </footer>
+
+    <div id="btnVoltar" onclick="voltar()">
+      <i class="fas fa-caret-square-left" title="Voltar"></i>
+    </div>
     <!-- Meus Scripts -->
     <script src="src/js/loader.js"></script>
     <script src="src/js/code.js"></script>
