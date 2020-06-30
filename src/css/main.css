@@ -10,6 +10,10 @@ footer {
   position: relative;
 }
 
+footer a {color: #f1f1f1;}
+
+footer a:hover {text-decoration: none;}
+
 #btnVoltar {
   position: fixed;
   text-align: center;
@@ -21,10 +25,6 @@ footer {
   bottom: 5%;
   display: none;
 }
-
-footer a {color: #f1f1f1;}
-
-footer a:hover {text-decoration: none;}
 
 #loader iframe {
   position: absolute;
