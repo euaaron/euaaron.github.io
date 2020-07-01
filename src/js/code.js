@@ -1,6 +1,8 @@
 var data = new Date();
 document.getElementById('ano').innerHTML = `2018 - ${data.getFullYear()}`;
 
+document.getElementById('authorAge').innerHTML = (1996 - data.getFullYear()) * (-1);
+
 var blog = document.getElementById('blog');
 var projetos = document.getElementById('projetos');
 var faculdade = document.getElementById('faculdade');
