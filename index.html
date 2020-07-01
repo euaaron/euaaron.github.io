@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>RELBEITS</title>
-    <meta name="description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_).">
-    <meta name="image" content="src/img/logo_square.jpg">
-    <!-- Meus Estilos -->
-    <link rel="stylesheet" type="text/css" href="src/css/faculdade.css">
-    <link rel="stylesheet" type="text/css" href="src/css/main.css">
-    <!-- CSS de terceiros -->
-    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" type="text/css" href="src/css/tether.min.css">
-    <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <!-- Glyphicons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url"           content="http://www.relbeits.net/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="RELBEITS" />
-    <meta property="og:description"   content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_)." />
-    <meta property="og:image"         content="http://www.relbeits.net/src/img/logo_square.jpg" />
-    <!-- Jquery -->
-    <script src="src/js/jquery.min.js"></script>
-  </head>
-  <body onload="setTimeout(loaded, 6)">
-    <!-- Page Loader -->
-    <div id="loader-wrapper">
-      <div id="loader">
-        <iframe src="http://euaaron.github.io/site" id="otherPage"></iframe>
-      </div>
 
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>RELBEITS</title>
+  <meta name="description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_).">
+  <meta name="image" content="src/img/logo_square.jpg">
+  <!-- Meus Estilos -->
+  <link rel="stylesheet" type="text/css" href="src/css/faculdade.css">
+  <link rel="stylesheet" type="text/css" href="src/css/main.css">
+  <!-- CSS de terceiros -->
+  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <link rel="stylesheet" type="text/css" href="src/css/tether.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- Glyphicons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.relbeits.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RELBEITS" />
+  <meta property="og:description" content="A página online do estudante de SI, Aaron Stiebler (aka relbeits_)." />
+  <meta property="og:image" content="http://www.relbeits.net/src/img/logo_square.jpg" />
+  <!-- Jquery -->
+  <script src="src/js/jquery.min.js"></script>
+</head>
+
+<body onload="setTimeout(loaded, 6)">
+  <!-- Page Loader -->
+  <div id="loader-wrapper">
+    <div id="loader">
+      <iframe src="http://euaaron.github.io/site" id="otherPage"></iframe>
     </div>
 
-    <div id="site">
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <div id="site">
     <!-- Facebook SDK Loader -->
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-dark no-padding stickbar topbar" role="navigation">
@@ -59,6 +66,9 @@
           <li class="nav-item disabled" title="Projetos">
             <button class="nav-link bg-dark disabled" id="menuBtn">Projetos</button>
           </li>
+          <li class="nav-item disabled" title="Tutorial">
+            <button class="nav-link bg-dark disabled" id="menuBtn">Dicas e Tutoriais</button>
+          </li>
           <li class="nav-item" onclick="goto_faculdade()" title="Faculdade">
             <button class="nav-link bg-dark" id="menuBtn">Faculdade</button>
           </li>
@@ -69,7 +79,8 @@
     <div class="alert maintence alert-danger fixed-bottom alert-dismissible" role="alert" id="alert">
       <div class="text-center container">
         <h4>ATENÇÃO!</h4>
-        <p>ESTE SITE AINDA ESTÁ EM PROCESSO DE CONSTRUÇÃO E PODERÁ SER ALTERADO SEM AVISO PRÉVIO! ALÉM DE ESTAR INCOMPLETO.</p>
+        <p>ESTE SITE AINDA ESTÁ EM PROCESSO DE CONSTRUÇÃO E PODERÁ SER ALTERADO SEM AVISO PRÉVIO! ALÉM DE ESTAR
+          INCOMPLETO.</p>
       </div>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close_alert()">
         <span aria-hidden="true">&times;</span>
@@ -81,9 +92,7 @@
       <div class="container">
         <span class="logo"></span>
         <h5 id="pageSubtitle">O blog daquele cara chato.</h5>
-        <div class="fb-share-button"
-          data-href="http://www.relbeits.net/"
-          data-layout="button_count">
+        <div class="fb-share-button" data-href="http://www.relbeits.net/" data-layout="button_count">
         </div>
       </div>
     </div>
@@ -102,7 +111,8 @@
         </marquee>
       </div>
     </div>
-    <a onclick="show_player()" href="#"><i class="fas fa-headphones" id="headphones" title="Ouça as minhas músicas favoritas enquanto lê o quê escrevi. Clique aqui!"></i></a>
+    <a onclick="show_player()" href="#"><i class="fas fa-headphones" id="headphones"
+        title="Ouça as minhas músicas favoritas enquanto lê o quê escrevi. Clique aqui!"></i></a>
 
     <!-- Principal -->
     <div class="content">
@@ -121,7 +131,8 @@
             <!-- TEXTO ----------------------------------------------------------------------->
             <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Se assim como eu, você não consegue viver sem música,
               possívelmente já deve ter mexido alguma vez no equalizador do seu android e talvez tenha se decepcionado
-              com as poucas mudanças que ele traz às nossas amadas playlists. Por isso, uma equipe de desenvolvetores amantes
+              com as poucas mudanças que ele traz às nossas amadas playlists. Por isso, uma equipe de desenvolvetores
+              amantes
               do áudio rítmico, formada por... Ler mais.</p>
             <hr>
             <div class="article-footer">
@@ -137,9 +148,19 @@
               <h3>"Hello World"</h3><!-- Título --------------------------------------------->
             </div>
             <!-- TEXTO --------------------------------------------------------------------->
-            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Assim como todo primeiro projeto de um iniciante à codificação ou programação, não poderia iniciar esse blog de outra forma, senão entitulando a primeira postagem como "Hello World" ou "Olá Mundo". Se você me conhece, deve estar se perguntando o motivo de ter feito esse site, e caso não me conheça, também deve querer saber pra quê esse site existe. Se você tem essa dúvida, espero que ela seja solucionada com a explicação à seguir:</p>
-            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao fim do 2° período de Sistemas de Informação, o professor de "Desenvolvimento Web" pede como <b>trabalho final</b> a criação de um site com "padrão comercial", algo que seria de fato usado por alguém ou por alguma empresa, um site "real". E é por esse e outros motivos que esse site foi criado.</p>
-            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao contrário da maioria dos sites encontrados na internet, criei ess site tentando seguir o padrão de página única, onde todo o conteúdo do site será apresentando em um <b>único arquivo .html</b>. Por isso, o site tende a ter um carregamento inicial lento, mas ao carregar uma vez, espera-se que tudo funcione instantâneamente.</p>
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Assim como todo primeiro projeto de um iniciante à
+              codificação ou programação, não poderia iniciar esse blog de outra forma, senão entitulando a primeira
+              postagem como "Hello World" ou "Olá Mundo". Se você me conhece, deve estar se perguntando o motivo de ter
+              feito esse site, e caso não me conheça, também deve querer saber pra quê esse site existe. Se você tem
+              essa dúvida, espero que ela seja solucionada com a explicação à seguir:</p>
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao fim do 2° período de Sistemas de Informação, o professor
+              de "Desenvolvimento Web" pede como <b>trabalho final</b> a criação de um site com "padrão comercial", algo
+              que seria de fato usado por alguém ou por alguma empresa, um site "real". E é por esse e outros motivos
+              que esse site foi criado.</p>
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Ao contrário da maioria dos sites encontrados na internet,
+              criei ess site tentando seguir o padrão de página única, onde todo o conteúdo do site será apresentando em
+              um <b>único arquivo .html</b>. Por isso, o site tende a ter um carregamento inicial lento, mas ao carregar
+              uma vez, espera-se que tudo funcione instantâneamente.</p>
             <hr>
             <div class="article-footer">
               <h6 class="text-right">por relbeits_</h6><!-- Autor ------------->
@@ -147,107 +168,113 @@
           </div>
           <div id="disqus_thread" title="chat"></div>
           <script>
-          /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-          /*
-          var disqus_config = function () {
-            this.page.url = "relbeits.net";  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-          };
-          */
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://relbeits.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-        <noscript>Por favor, ative o javascript para ver os <a href="https://disqus.com/?ref_noscript">comentários do Disqus.</a></noscript>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+              this.page.url = "relbeits.net";  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function () { // DON'T EDIT BELOW THIS LINE
+              var d = document,
+                s = d.createElement('script');
+              s.src = 'https://relbeits.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Por favor, ative o javascript para ver os <a href="https://disqus.com/?ref_noscript">comentários do
+              Disqus.</a></noscript>
         </div>
       </div>
-      </div>
+    </div>
 
-      <div id="projetos">
+    <div id="projetos">
 
-      </div>
+    </div>
 
-      <!-- Faculdade --------------------------------------------------------------------------------------------------------------------------------->
-      <div id="faculdade" align="center">
+    <!-- Faculdade --------------------------------------------------------------------------------------------------------------------------------->
+    <div id="faculdade" align="center">
+      <div class="container">
+        <h2>Desenvolvimento Web - 2019</h2>
+        <div id="exercicios">
           <!-- Atividade 1 -->
-          <div class="atividade col-4" id="ativ1" onclick="atividade_1()" >
+          <div class="atividade" onclick="atividade_1()">
             <div class="container">
               <h3 class="text-center">Atividade 1</h3>
               <hr>
-              <p class="text-justify">&nbsp;Finge que aqui tem a descrição do exercício indicando o que deve ser feito...
+              <p class="text-justify">Primeiro exercício prático do curso. Descrição interna.
               </p>
             </div>
           </div>
           <!-- Atividade 2 -->
-          <div class="atividade col-4" id="ativ3" onclick="atividade_2()" >
+          <div class="atividade" onclick="atividade_2()">
             <div class="container text-center">
               <h3>Atividade 2</h3>
               <hr>
-              <p>Testando mapas clicáveis.
+              <p>Quiz simples com o objetivo de introduzir navegação entre páginas.
               </p>
             </div>
           </div>
           <!-- Atividade 3 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_3()" >
+          <div class="atividade" onclick="atividade_3()">
             <div class="container text-center">
               <h3>Atividade 3</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Insersão de imagem e links através de image maps.
               </p>
             </div>
           </div>
           <!-- Atividade 4 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_4()" >
+          <div class="atividade" onclick="atividade_4()">
             <div class="container text-center">
               <h3>Atividade 4</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Insersão múltimídia no html, imagem e vídeo.
               </p>
             </div>
           </div>
           <!-- Atividade 5 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_5()" >
+          <div class="atividade" onclick="atividade_5()">
             <div class="container text-center">
               <h3>Atividade 5</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Incompleto. Descrição interna.
               </p>
             </div>
           </div>
           <!-- Atividade 6 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_6()" >
+          <div class="atividade" onclick="atividade_6()">
             <div class="container text-center">
               <h3>Atividade 6</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Incompleto. Descrição interna.
               </p>
             </div>
           </div>
           <!-- Atividade 7 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_7()" >
+          <div class="atividade" onclick="atividade_7()">
             <div class="container text-center">
               <h3>Atividade 7</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Manipulação de estado dos elementos.
               </p>
             </div>
           </div>
           <!-- Atividade 8 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_8()" >
+          <div class="atividade" onclick="atividade_8()">
             <div class="container text-center">
               <h3>Atividade 8</h3>
               <hr>
-              <p>Insersão múltimídia no html.
+              <p>Exercício corrompido. O objetivo era exibir um mapa de acordo com a área especificada, seja pais,
+                estado ou cidade.
               </p>
             </div>
           </div>
           <!-- Atividade 9 -->
-          <div class="atividade col-4" id="ativ4" onclick="atividade_9()" >
+          <div class="atividade" onclick="atividade_9()">
             <div class="container text-center">
               <h3>Atividade 9</h3>
               <hr>
@@ -256,7 +283,7 @@
             </div>
           </div>
           <!-- Atividade 10 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_10()" >
+          <div class="atividade" onclick="atividade_10()">
             <div class="container text-center">
               <h3>Atividade 10</h3>
               <hr>
@@ -265,7 +292,7 @@
             </div>
           </div>
           <!-- Atividade 11 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_11()" >
+          <div class="atividade" onclick="atividade_11()">
             <div class="container text-center">
               <h3>Atividade 11</h3>
               <hr>
@@ -274,7 +301,7 @@
             </div>
           </div>
           <!-- Atividade 12 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_12()" >
+          <div class="atividade" onclick="atividade_12()">
             <div class="container text-center">
               <h3>Atividade 12</h3>
               <hr>
@@ -283,7 +310,7 @@
             </div>
           </div>
           <!-- Atividade 13 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_13()" >
+          <div class="atividade" onclick="atividade_13()">
             <div class="container text-center">
               <h3>Atividade 13</h3>
               <hr>
@@ -292,7 +319,7 @@
             </div>
           </div>
           <!-- Atividade 14 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_14()" >
+          <div class="atividade" onclick="atividade_14()">
             <div class="container text-center">
               <h3>Atividade 14</h3>
               <hr>
@@ -301,7 +328,7 @@
             </div>
           </div>
           <!-- Atividade 15 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_15()" >
+          <div class="atividade" onclick="atividade_15()">
             <div class="container text-center">
               <h3>Atividade 15</h3>
               <hr>
@@ -310,7 +337,7 @@
             </div>
           </div>
           <!-- Atividade 16 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_16()" >
+          <div class="atividade" onclick="atividade_16()">
             <div class="container text-center">
               <h3>Atividade 16</h3>
               <hr>
@@ -319,7 +346,7 @@
             </div>
           </div>
           <!-- Atividade 17 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_17()" >
+          <div class="atividade" onclick="atividade_17()">
             <div class="container text-center">
               <h3>Atividade 17</h3>
               <hr>
@@ -328,7 +355,7 @@
             </div>
           </div>
           <!-- Atividade 18 -->
-          <div class="atividade col-4" id="ativ7" onclick="atividade_18()" >
+          <div class="atividade" onclick="atividade_18()">
             <div class="container text-center">
               <h3>Atividade 18</h3>
               <hr>
@@ -337,7 +364,7 @@
             </div>
           </div>
           <!-- Prova 1 -->
-          <div class="atividade col-4" id="ativ7" onclick="prova_1()" >
+          <div class="atividade" onclick="prova_1()">
             <div class="container text-center">
               <h3>Prova 1</h3>
               <hr>
@@ -346,7 +373,7 @@
             </div>
           </div>
           <!-- Prova 2 -->
-          <div class="atividade col-4" id="ativ7" onclick="prova_2()" >
+          <div class="atividade" onclick="prova_2()">
             <div class="container text-center">
               <h3>Prova 2</h3>
               <hr>
@@ -355,7 +382,7 @@
             </div>
           </div>
           <!-- Trabalho Final -->
-          <div class="atividade col-4" id="ativ7" onclick="trabalho_final()" >
+          <div class="atividade" onclick="trabalho_final()">
             <div class="container text-center">
               <h3>Trabalho Final</h3>
               <hr>
@@ -363,8 +390,9 @@
               </p>
             </div>
           </div>
-
+        </div>
       </div>
+    </div>
 
     <!-- Sobre o autor / Contato -->
     <div class="author">
@@ -378,10 +406,15 @@
               <span class="author-img" title="Aaron Stiebler"></span>
             </td>
             <td>
-              <div class="author_text" >
+              <div class="author_text">
                 <div class="text-justify" title="Sobre o Autor">
-                  <br/>
-                  <p><span id="em2">N</span>atural de Petrópolis/RJ, Aaron Stiebler C. da Silva, de <span id="authorAge">22</span> anos, sonha em trabalhar com neuro-computação aplicada à realidade virtual e para iniciar seus estudos ingressou no curso de Bacharelado em Sistemas de Informação no <a href="http://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG - Campus Juiz de Fora</a>, onde é bolsista de Produção Audiovisual. Se tudo der errado ele não descarta a possibilidade de seguir a carreira cinematográfica.</p>
+                  <br />
+                  <p><span id="em2">N</span>atural de Petrópolis/RJ, Aaron Stiebler C. da Silva, de <span
+                      id="authorAge">22</span> anos, sonha em trabalhar com neuro-computação aplicada à realidade
+                    virtual e para iniciar seus estudos ingressou no curso de Bacharelado em Sistemas de Informação no
+                    <a href="http://jf.ifsudestemg.edu.br" target="_blank">IF Sudeste MG - Campus Juiz de Fora</a>, onde
+                    é bolsista de Produção Audiovisual. Se tudo der errado ele não descarta a possibilidade de seguir a
+                    carreira cinematográfica.</p>
                 </div>
               </div>
             </td>
@@ -392,81 +425,71 @@
 
     <!-- Footer -->
     <footer>
-      <div class="container" id="contato">
-        <table class="contato">
-          <thead>
-            <tr>
-              <th colspan="10">
-                <p>Contato:</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="social_mail">
-                <a class="social_link" href="mailto:aaron.relbeits@gmail.com?Subject=RELBEITS.net" target="_blank" title="E-mail">
-                  <i class="fas fa-at"></i>
-                </a>
-              </td>
-              <td id="social_face">
-                <a class="social_link" href="http://fb.com/relbeits" target="_blank" title="Facebook">
-                  <i class="fab fa-facebook"></i>
-                </a>
-              </td>
-              <td id="social_insta">
-                <a class="social_link"  href="http://instagram.com/relbeits_" target="_blank" title="Instagram">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </td>
-              <td id="social_dvart">
-                <a class="social_link"  href="http://aarongdev.deviantart.com" target="_blank" title="DeviantArt">
-                  <i class="fab fa-deviantart"></i>
-                </a>
-              </td>
-              <td id="social_tube">
-                <a class="social_link" href="http://youtube.com/RelbeitsChannel" target="_blank" title="Youtube">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </td>
-              <td id="social_git">
-                <a class="social_link" href="http://github.com/euaaron" target="_blank" title="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-              </td>
-              <td class="void"></td>
-              <td class="address">
-                <h5><i class="fas fa-map-marker-alt"></i> Endereço</h5>
-                <p>Rua Vilela Filho 93/104, Santa Helena - Juiz de Fora/MG, Brasil <br/> CEP: 36015-280</p>
-              </td>
-              <td class="void"></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="copyright text-center">
-          <br/>
-          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR"><img alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-          <br/>
-          <br/>
-          <p>Este site mal feito está licenciado com uma Licença <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR">Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>.</p>
-          <p>&copy; <span id="ano">2018</span> Aaron Stiebler C. da Silva</p>
+      <div class="container">
+        <div class="contato">
+          <h5>Contato</h5>
+          <div class="link-group">
+            <div id="social_mail">
+              <a class="social_link" href="mailto:aaron.relbeits@gmail.com?Subject=RELBEITS.net" target="_blank"
+                title="E-mail">
+                <i class="fas fa-at"></i>
+              </a>
+            </div>
+            <div id="social_face">
+              <a class="social_link" href="http://fb.com/relbeits" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+            <div id="social_insta">
+              <a class="social_link" href="http://instagram.com/relbeits_" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <div id="social_dvart">
+              <a class="social_link" href="http://aarongdev.deviantart.com" target="_blank" title="DeviantArt">
+                <i class="fab fa-deviantart"></i>
+              </a>
+            </div>
+            <div id="social_tube">
+              <a class="social_link" href="http://youtube.com/RelbeitsChannel" target="_blank" title="Youtube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+            <div id="social_git">
+              <a class="social_link" href="http://github.com/euaaron" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="container text-center">
+        <br/>
+        <p><i class="fas fa-map-marker-alt"></i> Rua Vilela Filho 93/104, Santa Helena - Juiz de Fora/MG, Brasil - CEP: 36015-280</p>
+        <p>&copy; <span id="ano">2018</span> | Aaron Stiebler C. da Silva</p>
+        <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR"><img
+            alt="Licença Creative Commons" title="Licença Creative Commons" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
       </div>
-    </footer>
+  </div>
+  </footer>
 
-    <div id="btnVoltar" onclick="voltar()">
-      <i class="fas fa-caret-square-left" title="Voltar"></i>
-    </div>
-    <!-- Meus Scripts -->
-    <script src="src/js/loader.js"></script>
-    <script src="src/js/code.js"></script>
-    <!-- Frameworks e Plugins offlines -->
-    <script src="src/js/tether.min.js"></script>
-    <script src="src/js/bootstrap.min.js"></script>
-    <!-- Frameworks e Plugins onlines -->
-    <script id="dsq-count-scr" src="http://relbeits.disqus.com/count.js" async></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <div id="btnVoltar" onclick="voltar()">
+    <i class="fas fa-caret-square-left" title="Voltar"></i>
+  </div>
+  <!-- Meus Scripts -->
+  <script src="src/js/loader.js"></script>
+  <script src="src/js/code.js"></script>
+  <!-- Frameworks e Plugins offlines -->
+  <script src="src/js/tether.min.js"></script>
+  <script src="src/js/bootstrap.min.js"></script>
+  <!-- Frameworks e Plugins onlines -->
+  <script id="dsq-count-scr" src="http://relbeits.disqus.com/count.js" async></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+    integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous">
+  </script>
 
-  </body>
+</body>
+
 </html>
