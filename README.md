@@ -1,5 +1,5 @@
 # Stiebler.tech
-## Last known as relbeits.net
+## Formerly known as relbeits.net
 
 [pt-BR]
 **2018**
