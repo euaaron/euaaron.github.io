@@ -47,7 +47,7 @@ jobs:
         run: yarn build --prod
 
   merge:
-    needs: [test]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
