@@ -1,4 +1,4 @@
-name: CI
+name: Automated Deploy
 
 on:
   push:
@@ -6,35 +6,37 @@ on:
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
 
-  build-deploy:    
+  build:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
+          path: '**/node_modules'
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
         with:
-          node-version: 12.19.0
-
-      - name: Install Yarn
-        run: |
-          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg 
-          sudo apt-key add - | echo "deb https://dl.yarnpkg.com/debian/ stable main" 
-          sudo tee /etc/apt/sources.list.d/yarn.list
-          sudo apt update
+          node-version: '12.x'        
       
-      - name: Download Dependencies and Build
-        run: |
-          yarn
-          yarn ng build --prod
-               
+      - name: Install Dependencies
+        run: yarn
+   
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.4
       - name: Deploy
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          git remote rm origin
+          git remote add origin https://github.com/$GITHUB_REPOSITORY.git
           yarn ng add angular-cli-ghpages
-          yarn ng deploy --cname=$PAGE_URL --name=$USERNAME --email=$EMAIL
+          yarn ng deploy --cname=${{ secrets.PAGE_URL }} --name=${{ secrets.USERNAME }} --email=${{ secrets.EMAIL }}
+        
       
