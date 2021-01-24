@@ -1,0 +1,60 @@
+name: Setup, Build and Merge
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
+          path: "**/node_modules"
+
+      - name: Setup Node and Yarn
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: "12.x"
+
+      - name: Install Dependencies
+        run: yarn
+
+  build:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
+          path: "**/node_modules"
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/.dist')}}
+          path: "**/.dist"
+
+      - name: Setup Node and Yarn
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: "12.x"
+
+      - name: Build Prod
+        run: yarn build --prod
+
+  merge:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Merge Development to Main
+        uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: development
+          target_branch: main
+          github_token: ${{ secrets.GH_TOKEN }}
