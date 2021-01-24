@@ -26,6 +26,7 @@ jobs:
         run: yarn     
    
   deploy:
+    needs: [setup]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,7 +34,11 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
-          path: "**/node_modules"
+          path: "**/node_modules"     
+      - name: Setup Node and Yarn
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: "12.x"  
       - name: Angular Deploy to GH Pages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
