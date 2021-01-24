@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build-deploy:    
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 12.19.0
+
+      - name: Install Yarn
+        run: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg 
+          sudo apt-key add - | echo "deb https://dl.yarnpkg.com/debian/ stable main" 
+          sudo tee /etc/apt/sources.list.d/yarn.list
+          sudo apt update
+      
+      - name: Install Angular-CLI
+        run: npm i -g @angular-cli
+      
+      - name: Download Dependencies and Build
+        run: |
+          yarn
+          ng build --prod
+               
+      - name: Deploy
+        run: ng deploy --cname=$PAGE_URL --name=$USERNAME --email=$EMAIL
+      
