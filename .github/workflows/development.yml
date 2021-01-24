@@ -1,4 +1,4 @@
-name: Setup, Test and Merge
+name: Setup, Build and Merge
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-  test:
+  build:
     needs: [setup]
     runs-on: ubuntu-latest
     steps:
@@ -33,14 +33,18 @@ jobs:
         with:
           key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
           path: "**/node_modules"
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/.dist')}}
+          path: "**/.dist"
 
       - name: Setup Node and Yarn
         uses: actions/setup-node@v2.1.4
         with:
           node-version: "12.x"
 
-      - name: Run tests
-        run: yarn test
+      - name: Build Prod
+        run: yarn build --prod
 
   merge:
     needs: [test]
