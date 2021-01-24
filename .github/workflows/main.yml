@@ -1,6 +1,8 @@
 name: GH Pages Deploy
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
