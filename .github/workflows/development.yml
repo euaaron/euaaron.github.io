@@ -48,8 +48,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           patch-wording: "patch,fixes,fix"
-          target-branch: "development"
-      - name: Auto merge from Development to Main
+          skip-tag: "true"
+      - name: "merge: development into main"
         uses: devmasx/merge-branch@v1.3.1
         with:
           type: now
