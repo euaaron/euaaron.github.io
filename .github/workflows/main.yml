@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --global user.email "${{ secrets.EMAIL }}"
           git config --global user.name "${{ secrets.USERNAME }}"
-          git hub remote set-url origin https://${{ secrets.GH_TOKEN }}:x-oauth-basic@github.com/${{ secrets.REPO }}.git
+          git remote set-url origin https://${{ secrets.GH_TOKEN }}:x-oauth-basic@github.com/${{ secrets.REPO }}.git
           yarn ng add angular-cli-ghpages
           yarn ng deploy --no-silent --cname=${{ secrets.PAGE_URL }}
         
