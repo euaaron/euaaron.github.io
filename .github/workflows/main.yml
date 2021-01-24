@@ -14,9 +14,11 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
-          path: |
-            **/node_modules
-            .dist
+          path: "**/node_modules"
+      - uses: actions/cache@v2
+        with:
+          key: ${{runner.os}}-modules-${{hashFiles('**/.dist')}}
+          path: "**/.dist"
       - name: Deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
