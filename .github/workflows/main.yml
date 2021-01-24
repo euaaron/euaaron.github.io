@@ -35,6 +35,6 @@ jobs:
                
       - name: Deploy
         run: |
-          ng add angular-cli-ghpages
-          ng deploy --cname=$PAGE_URL --name=$USERNAME --email=$EMAIL
+          yarn ng add angular-cli-ghpages
+          yarn ng deploy --cname=$PAGE_URL --name=$USERNAME --email=$EMAIL
       
