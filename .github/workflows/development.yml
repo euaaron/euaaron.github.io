@@ -42,7 +42,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Merge Development to Main
+      - name: "Update Application Version"
+        uses: "phips28/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          patch-wording: "patch,fixes,fix"
+          target-branch: "development"
+      - name: Auto merge from Development to Main
         uses: devmasx/merge-branch@v1.3.1
         with:
           type: now
