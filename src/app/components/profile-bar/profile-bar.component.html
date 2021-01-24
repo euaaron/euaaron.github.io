@@ -1,0 +1,14 @@
+<section class="container profile">
+  <div id="profile">
+    <img src="https://github.com/euaaron.png" alt="Aaron S C Silva" />
+    <aside>
+      <div class="icon-list" >
+        <a *ngFor="let item of social" [href]=item.url>
+          <fa-icon [icon]=item.icon></fa-icon>
+        </a>
+      </div>
+      <h1>{{name}}</h1>
+      <h4>{{college.abbr}} | {{college.course}}, {{college.ingressYear}}</h4>
+    </aside>
+  </div>
+</section>
