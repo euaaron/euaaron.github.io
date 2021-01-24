@@ -14,8 +14,10 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: ${{runner.os}}-modules-${{hashFiles('**/yarn.lock')}}
-          path: '**/node_modules'
-      - name: Build and Deploy
+          path: |
+            **/node_modules
+            .dist
+      - name: Deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -23,6 +25,6 @@ jobs:
           git config --global user.name "${{ secrets.USERNAME }}"
           git remote set-url origin https://${{ secrets.GH_TOKEN }}:x-oauth-basic@github.com/${{ secrets.REPO }}.git
           yarn ng add angular-cli-ghpages
-          yarn ng deploy --no-silent --cname=${{ secrets.PAGE_URL }}
+          yarn ng deploy --no-build --cname=${{ secrets.PAGE_URL }}
         
       
