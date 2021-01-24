@@ -42,6 +42,6 @@ jobs:
           git remote rm origin
           git remote add origin https://github.com/${{ secrets.REPO }}.git
           yarn ng add angular-cli-ghpages
-          yarn ng deploy --cname=${{ secrets.PAGE_URL }}
+          yarn ng deploy --no-silent --cname=${{ secrets.PAGE_URL }}
         
       
