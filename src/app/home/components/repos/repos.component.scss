@@ -14,6 +14,7 @@
     background-color: #f8f8f8;
     padding: 0.2rem 0.6rem;
   }
+
   section {
     display: flex;
     flex-direction: row;
@@ -35,10 +36,10 @@
         padding: 1rem;
         background-color: lighten($color: #282a36, $amount: 20);
         color: #f8f8f8;
-        :hover,
-        :focus {
-          color: lighten($color: #3673ac, $amount: 20);
-        }
+      }
+      a:hover,
+      a:focus {
+        background-color: lighten($color: #3673ac, $amount: 20);
       }
     }
   }
@@ -49,10 +50,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: row;
 
   max-width: 100%;
   background-color: #3673ac;
-  flex-direction: row;
 
   > aside {
     flex: 1;
@@ -60,8 +61,8 @@
     flex-direction: column;
     gap: 1rem;
 
-    padding: 1rem 2rem;
-    margin-left: 1rem;
+    margin: 0.4rem 0 0 1rem;
+    padding: 1rem 1rem;
 
     background-color: lighten($color: #282a36, $amount: 5);
     color: #f8f8f8;
@@ -81,6 +82,8 @@
         align-items: center;
         gap: 0.4rem;
 
+        padding: 0 0 0 0.4rem;
+        border-left: lighten($color: #282a36, $amount: 30) solid 0.2rem;
         color: lighten($color: #282a36, $amount: 30);
 
         div {
@@ -89,35 +92,26 @@
       }
     }
 
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    // > div {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   gap: 1rem;
 
-      > code {
-        font-family: "Space Mono", monospace;
-        background-color: #ffffff;
-        border-radius: 0.4rem;
-        padding: 0.2rem 0.6rem;
-      }
-    }
+    //   > code {
+    //     font-family: "Space Mono", monospace;
+    //     background-color: #ffffff;
+    //     border-radius: 0.4rem;
+    //     padding: 0.2rem 0.6rem;
+    //   }
+    // }
 
     > footer {
       display: flex;
       border-top: #3673ac solid 0.1rem;
       padding-top: 0.4rem;
-      justify-content: flex-start;
-      gap: 1rem;
 
       div {
-        width: 10rem;
-
-        h3 {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 0.2rem;
-        }
+        width: 50%;
 
         span {
           font-size: smaller;
@@ -128,19 +122,43 @@
 }
 
 @media screen and (max-width: 720px) {
-  .cards {
-    align-items: stretch;
+  .card {
+    max-width: calc(100%);
+
+    aside {
+      margin: 0.05rem 0 0 1rem;
+
+      h3 {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        span {
+          width: 100%;
+          border-left: none;
+          border-top: lighten($color: #282a36, $amount: 30) solid 0.2rem;
+          padding: 0.2rem 0 0 0.2rem;
+          font-size: 0.8rem !important;
+        }
+      }
+    }
   }
 
   #repos {
-    section {
-      display: flex;
-      flex-direction: column;
-      margin-top: 1rem;
+    > div {
+      > section {
+        display: flex;
+        flex-direction: column;
 
-      nav {
-        flex-direction: row;
-        justify-content: space-evenly;
+        footer > div:last-child {
+          text-align: right;
+          align-items: flex-end;
+        }
+
+        nav {
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
       }
     }
   }

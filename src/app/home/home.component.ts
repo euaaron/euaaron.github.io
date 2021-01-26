@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
       width: 100%;
       height: 100%;
       background: #282a36;
+      margin: 0;
     }
   `]
 })
