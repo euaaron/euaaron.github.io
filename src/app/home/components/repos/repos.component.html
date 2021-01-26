@@ -7,11 +7,8 @@
           <h3>
             {{ repo.name }}
             <span *ngIf="repo.language">
-              |
-              <div>
-                <fa-icon [icon]="fileIcon" title="Linguagem predominante"></fa-icon>
-                {{ repo.language }}
-              </div>
+              <fa-icon [icon]="fileIcon" title="Linguagem predominante"></fa-icon>
+              {{ repo.language }}
             </span>
           </h3>
           <p>{{ repo.description }}</p>
@@ -32,10 +29,6 @@
               <h3>
                 {{ repo.updated_at | dfnsParseIso | dfnsFormat: "LLLL yyyy" }}
               </h3>
-            </div>
-            <div>
-              <span>Author</span>
-              <h3>@{{ repo.owner.login }}</h3>
             </div>
           </footer>
         </aside>
