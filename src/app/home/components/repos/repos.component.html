@@ -1,0 +1,24 @@
+<section class="cards">
+  <h4>Projetos</h4>
+  <div *ngFor="let repo of repos">
+    <aside>
+      <h3>{{ repo.name }}</h3>
+      <p>{{ repo.description }}</p>
+      <!-- div *ngFor="let tech of repo_tags(repo.tags_url)">
+        <code>
+          {{ tech }}
+        </code>
+      </div -->
+      <footer>
+        <div>
+          <span>Created at:</span>
+          <h3>{{ (repo.created_at | dfnsParseIso | dfnsFormat: 'LLLL yyyy') }}</h3>
+        </div>
+        <div>
+          <span>Updated at:</span>
+          <h3>{{ (repo.updated_at | dfnsParseIso | dfnsFormat: 'LLLL yyyy') }}</h3>
+        </div>
+      </footer>
+    </aside>
+  </div>
+</section>

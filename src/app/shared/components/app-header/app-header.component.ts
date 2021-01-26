@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-header.component.scss']
 })
 
-export class AppHeader {
+export class AppHeaderComponent {
   phrase = 'You\'ll never know if you never try.';
 }

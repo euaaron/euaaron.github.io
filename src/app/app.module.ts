@@ -1,31 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgModule } from '@angular/core';
-import { DateFnsModule } from 'ngx-date-fns';
-
-import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './components/app.component';
-import { AppHeader } from './components/app-header/app-header.component';
-import { ProfileBar } from './components/profile-bar/profile-bar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '../environments/environment';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { SharedModule } from './shared/shared.module';
+
+import { RoutesModule } from './shared/routes.module';
+
+import { HomeModule } from './home/home.module';
+
+import { AppComponent } from './app.component';
+
 
 @NgModule({
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    DateFnsModule,
+    RoutesModule,
+    SharedModule,
+    HomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    FontAwesomeModule
   ],
   declarations: [
-    AppComponent,
-    AppHeader,
-    ProfileBar
+    AppComponent
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

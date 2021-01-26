@@ -3,12 +3,14 @@
     <img src="https://github.com/euaaron.png" alt="Aaron S C Silva" />
     <aside>
       <div class="icon-list" >
-        <a *ngFor="let item of social" [href]=item.url>
+        <a *ngFor="let item of profile.social" [href]=item.url>
           <fa-icon [icon]=item.icon></fa-icon>
         </a>
       </div>
-      <h1>{{name}}</h1>
-      <h4>{{college.abbr}} | {{college.course}}, {{college.ingressYear}}</h4>
+      <h1>{{profile.user.name}}</h1>
+      <h4 *ngFor="let college of profile.education">
+        {{college.course}}, {{college.ingressYear}}
+      </h4>
     </aside>
   </div>
 </section>
