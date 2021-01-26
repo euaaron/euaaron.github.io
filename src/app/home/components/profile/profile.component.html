@@ -1,9 +1,9 @@
 <section class="container profile">
   <div id="profile">
-    <img src="https://github.com/euaaron.png" alt="Aaron S C Silva" />
+    <img src="https://github.com/euaaron.png" alt="Aaron S C Silva" title="Aaron Stiebler <@euaaron>" />
     <aside>
       <div class="icon-list" >
-        <a *ngFor="let item of profile.social" [href]=item.url>
+        <a *ngFor="let item of profile.social" [href]=item.url [title]=item.platform>
           <fa-icon [icon]=item.icon></fa-icon>
         </a>
       </div>

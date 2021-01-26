@@ -12,4 +12,5 @@ export interface IRepos {
   homepage?: string,
   created_at: string,
   updated_at: string
+  fork: boolean,
 }

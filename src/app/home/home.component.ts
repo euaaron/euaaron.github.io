@@ -3,12 +3,20 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-home',
   template: `
-    <app-header></app-header>
-    <profile-bar></profile-bar>
-    <main class="container">
-      <app-repos></app-repos>
-    </main>
+    <section id="home">
+      <profile-bar></profile-bar>
+      <main class="container">
+        <app-repos></app-repos>
+      </main>
+    </section>
   `,
+  styles: [`
+    #home {
+      width: 100%;
+      height: 100%;
+      background: #282a36;
+    }
+  `]
 })
 export class HomeComponent {
 }

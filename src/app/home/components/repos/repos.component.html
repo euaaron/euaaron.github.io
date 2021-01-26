@@ -1,24 +1,53 @@
-<section class="cards">
-  <h4>Projetos</h4>
+<section id="repos">
+  <h4 class="section-title">Projetos</h4>
   <div *ngFor="let repo of repos">
-    <aside>
-      <h3>{{ repo.name }}</h3>
-      <p>{{ repo.description }}</p>
-      <!-- div *ngFor="let tech of repo_tags(repo.tags_url)">
-        <code>
-          {{ tech }}
-        </code>
-      </div -->
-      <footer>
-        <div>
-          <span>Created at:</span>
-          <h3>{{ (repo.created_at | dfnsParseIso | dfnsFormat: 'LLLL yyyy') }}</h3>
-        </div>
-        <div>
-          <span>Updated at:</span>
-          <h3>{{ (repo.updated_at | dfnsParseIso | dfnsFormat: 'LLLL yyyy') }}</h3>
-        </div>
-      </footer>
-    </aside>
+    <section *ngIf="!repo.fork">
+      <div [class]="repo.homepage ? 'card bg-green' : 'card'">
+        <aside>
+          <h3>
+            {{ repo.name }}
+            <span *ngIf="repo.language">
+              |
+              <div>
+                <fa-icon [icon]="fileIcon" title="Linguagem predominante"></fa-icon>
+                {{ repo.language }}
+              </div>
+            </span>
+          </h3>
+          <p>{{ repo.description }}</p>
+          <!-- div *ngFor="let tech of repo_tags(repo.tags_url)">
+          <code>
+            {{ tech }}
+          </code>
+        </div -->
+          <footer>
+            <div>
+              <span>Created at</span>
+              <h3>
+                {{ repo.created_at | dfnsParseIso | dfnsFormat: "LLLL yyyy" }}
+              </h3>
+            </div>
+            <div>
+              <span>Updated at</span>
+              <h3>
+                {{ repo.updated_at | dfnsParseIso | dfnsFormat: "LLLL yyyy" }}
+              </h3>
+            </div>
+            <div>
+              <span>Author</span>
+              <h3>@{{ repo.owner.login }}</h3>
+            </div>
+          </footer>
+        </aside>
+      </div>
+      <nav>
+        <a [href]="repo.html_url" target="_blank" title="Ver no GitHub">
+          <fa-icon [icon]="linkIcon"></fa-icon>
+        </a>
+        <a *ngIf="repo.homepage" [href]="repo.homepage" title="Live Preview">
+          <fa-icon [icon]="globeIcon"></fa-icon>
+        </a>
+      </nav>
+    </section>
   </div>
 </section>
