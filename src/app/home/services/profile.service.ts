@@ -27,15 +27,18 @@ export class ProfileService {
   ];
   private social = [
     {
+      platform: 'LinkedIn',
       icon: faLinkedin,
       url: 'https://linkedin.com/in/euaaron'
     }
     ,
     {
+      platform: 'GitHub',
       icon: faGithub,
       url: 'https://github.com/euaaron'
     },
     {
+      platform: 'Rocketseat',
       icon: faRocket,
       url: 'https://app.rocketseat.com.br/me/aaron'
     }

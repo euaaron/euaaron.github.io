@@ -1,7 +1,8 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-interface ILink {
+interface IPlatform {
   icon: IconDefinition,
+  platform: string,
   url: string
 }
 
@@ -19,5 +20,5 @@ export interface IProfile {
     age: number,
   },
   education?: ICollege[],
-  social?: ILink[]
+  social?: IPlatform[]
 }
