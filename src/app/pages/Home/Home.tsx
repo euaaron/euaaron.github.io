@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from "../../assets/images/logo.svg";
+import { PillButton } from "../../shared/components/PillButton/PillButton";
+import "./Home.css";
 
-function App() {
+export function Home() {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,9 +18,8 @@ function App() {
         >
           Learn React
         </a>
+        <PillButton to='/projects' text='Projects'/>
       </header>
     </div>
   );
 }
-
-export default App;
