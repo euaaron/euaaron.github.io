@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { SystemRouter } from "./app/shared/http/routes/SystemRouter";
 import reportWebVitals from "./reportWebVitals";
+import { registerServiceWorker } from "./serviceWorker";
+
+registerServiceWorker();
 
 ReactDOM.render(
   <React.StrictMode>
