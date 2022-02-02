@@ -8,12 +8,12 @@ export const DarkTheme: DefaultTheme = {
     primary: "#50BBF6",
     secondary: "#BD93F9",
     title: "#DFE9F5",
-    foreground: "#6272A4",
+    foreground: "#96BCF4",
     background: "#202034",
     success: "#7FEC8A",
     warning: "#F6B450",
     danger: "#E95A5A",
-    disabled: "#CDD2D9",
+    disabled: "#9EB2CF",
   },
 };
 
@@ -30,6 +30,6 @@ export const LightTheme: DefaultTheme = {
     success: "#7FEC8A",
     warning: "#F6B450",
     danger: "#E95A5A",
-    disabled: "#CDD2D9",
+    disabled: "#9EB2CF",
   },
 };

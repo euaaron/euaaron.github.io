@@ -8,7 +8,7 @@ export function SystemRouter() {
   return (
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Route>

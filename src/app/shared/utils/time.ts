@@ -12,7 +12,7 @@ export const seconds = Number(
 
 export const fullTime = `${hours}:${minutes}:${seconds}`;
 
-export const date = new Date().toLocaleDateString("pt-BR");
+export const date = (date = new Date()): string => date.toLocaleDateString("pt-BR");
 
 const TimeUtils = {
   hours,
