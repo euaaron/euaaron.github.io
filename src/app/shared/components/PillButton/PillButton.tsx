@@ -8,11 +8,10 @@ interface PillButtonProps {
 }
 
 export function PillButton({ to, text, children, animate }: PillButtonProps) {
-  const paddingFix = (children) ? 'true' : 'false';
-  const anim = animate ? 'true' : 'false';
+  const paddingFix = (children) ? true : false;
 
   return (
-    <StyledLink to={to} animate={anim} paddingfix={paddingFix}>
+    <StyledLink to={to} animate={animate} paddingfix={paddingFix}>
       {children}
       {text}
     </StyledLink>
