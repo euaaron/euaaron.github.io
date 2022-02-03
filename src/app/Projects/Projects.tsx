@@ -53,20 +53,15 @@ export class Projects extends React.Component<{}, ProjectState> {
       const searchObj = (searchTerm: string) =>
         RegExp(searchTerm, "i").test(JSON.stringify(project));
 
-      if (project.language === search) {
+      if (project.language === search.toLowerCase()) {
         foundSome = true;
         return true;
-      }
-
-      if (foundSome) {
-        return false;
-      }
-
-      if (project.language !== search) {
+      } else {
+        if (foundSome) {
+          return false;
+        }
         return searchObj(search);
       }
-
-      return searchObj(search);
     });
     this.setState({ filteredProjects });
   }
@@ -84,7 +79,7 @@ export class Projects extends React.Component<{}, ProjectState> {
               value={this.state.search}
               onChange={(e) => this.handleSearch(e)}
             />
-            <span title="Pesquisar projeto" >
+            <span title="Pesquisar projeto">
               <Search />
             </span>
           </label>
