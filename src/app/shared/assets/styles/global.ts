@@ -34,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--foreground);
     -webkit-font-smothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
   }
 
   div#root {
