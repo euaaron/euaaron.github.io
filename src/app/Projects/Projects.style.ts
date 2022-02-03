@@ -9,7 +9,8 @@ export const ProjectsContainer = styled.main`
   overflow: hidden;
   gap: 4rem;
   width: 100%;
-  padding: 0 1rem;
+  height: 100%;
+  padding: 2rem 1rem 1rem;
   text-align: center;  
 
   > header {
@@ -51,9 +52,19 @@ export const ProjectsContainer = styled.main`
         font-size: 1.25rem;
       }
 
-      > button {
-        padding: 0.25rem 0.5rem;
+      > span {
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.75rem;
         color: var(--foreground);
+        cursor: pointer;
+        transition: filter 0.4s ease-in-out;
+
+        &:hover,
+        &:focus {
+          background: var(--background);
+          filter: brightness(1.2);
+        }
+
         svg {
           width: 1.5rem;
           height: 1.5rem;

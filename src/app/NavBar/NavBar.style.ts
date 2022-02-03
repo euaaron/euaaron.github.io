@@ -6,9 +6,10 @@ interface NavBarItemProps {
 
 export const NavBarContainer = styled.nav`
   z-index: 1;
+  width: 100%;
   position: fixed;
   background: var(--background);
-  width: 100%;
+  transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 
   div {
     display: flex;

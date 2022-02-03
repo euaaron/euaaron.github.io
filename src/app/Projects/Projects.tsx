@@ -84,9 +84,9 @@ export class Projects extends React.Component<{}, ProjectState> {
               value={this.state.search}
               onChange={(e) => this.handleSearch(e)}
             />
-            <button type="button" title="Pesquisar projeto">
+            <span title="Pesquisar projeto" >
               <Search />
-            </button>
+            </span>
           </label>
         </header>
         <ProjectsList>
