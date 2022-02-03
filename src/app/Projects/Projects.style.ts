@@ -7,15 +7,15 @@ export const ProjectsContainer = styled.main`
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  gap: 4rem;
+  gap: 1rem;
   width: 100%;
   height: 100%;
   padding: 2rem 1rem 1rem;
-  text-align: center;  
+  text-align: center;
 
-  > header {
-    top: 2rem;
-    position: relative;
+  
+  > header {    
+    position: static;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,7 +74,7 @@ export const ProjectsContainer = styled.main`
   }
 `;
 
-export const ProjectsList = styled.ul`  
+export const ProjectsList = styled.ul`
   flex: 1;
   display: flex;
   flex-wrap: wrap;
@@ -82,17 +82,24 @@ export const ProjectsList = styled.ul`
   align-self: center;
   justify-content: center;
   gap: 0.5rem;
-  
+
   width: 100%;
   height: 100%;
   overflow: auto;
   list-style: none;
   padding: 2rem 0 4rem;
+  position: relative;
+  top: 0;
 
   li {
     position: relative;
     flex: 1;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
     min-width: calc(24rem - 2%);
     max-width: calc(24rem - 2%);
     min-height: calc(13rem - 2%);

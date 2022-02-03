@@ -4,11 +4,10 @@ interface NavBarItemProps {
   isActive: boolean;
 }
 
-export const NavBarContainer = styled.nav`
-  z-index: 1;
+export const NavBarContainer = styled.nav`  
   width: 100%;
-  position: fixed;
-  background: var(--background);
+  position: static;
+  background: var(--background);  
   transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 
   div {
@@ -27,15 +26,13 @@ export const NavBarContainer = styled.nav`
       align-items: flex-end;
       justify-content: flex-end;
       list-style: none;
-      gap: 1rem;
     }
   }
 `;
 
 export const NavBarItem = styled.li<NavBarItemProps>`
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: center;  
 
   &::before,
   &:last-child::after {
@@ -47,7 +44,8 @@ export const NavBarItem = styled.li<NavBarItemProps>`
     background: var(--foreground);
   }
 
-  a {
+  a {      
+    padding: 0.25rem 0.75rem;
     color: ${({ isActive, theme }) =>
       isActive
         ? theme.type === "light"

@@ -5,6 +5,8 @@ export const ProjectCardStyle = styled(BorderDiv)`
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 85vw;
   gap: 0.5rem;
   overflow: hidden;
 
