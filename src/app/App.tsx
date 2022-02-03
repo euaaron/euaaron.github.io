@@ -1,4 +1,5 @@
 import React from "react";
+import { Moon, Sun } from "react-feather";
 import { Outlet } from "react-router-dom";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { AppContainer } from "./App.styles";
@@ -10,24 +11,32 @@ import TimeUtils from "./shared/utils/time";
 
 type AppState = {
   theme: DefaultTheme;
+  hasPreferences: boolean;
 };
 
 export class App extends React.Component<{}, AppState> {
   constructor(props: any) {
     super(props);
-    this.state = this.setState();
+    this.state = { theme: DarkTheme, hasPreferences: false };
     ServiceLoader.getInstance();
   }
 
-  setState(): AppState {
-    const hours = TimeUtils.hours;
-    if (hours >= 18 || hours <= 6) {
-      return { theme: DarkTheme };
-    } else {
-      return {
-        theme: LightTheme,
+  setTheme() {
+    if (!this.state.hasPreferences) {
+      const hours = TimeUtils.hours;
+      if (hours >= 18 || hours <= 6) {
+        this.setState({ theme: DarkTheme });
+      } else {
+        this.setState({ theme: LightTheme });
       }
     }
+  }
+
+  toggleTheme(): void {
+    this.setState({
+      theme: this.state.theme === DarkTheme ? LightTheme : DarkTheme,
+      hasPreferences: true
+    });
   }
 
   render(): React.ReactNode {
@@ -35,7 +44,11 @@ export class App extends React.Component<{}, AppState> {
       <AppContainer>
         <ThemeProvider theme={this.state.theme}>
           <GlobalStyle />
-          <NavBar />
+          <NavBar>
+            <button onClick={() => this.toggleTheme()}>
+              {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
+            </button>
+          </NavBar>
           <Outlet />
         </ThemeProvider>
       </AppContainer>
