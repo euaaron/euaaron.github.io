@@ -1,5 +1,5 @@
-import { ServiceLoader } from "../../../shared/http/services/ServiceLoader";
-import { date } from "../../../shared/utils/time";
+import { ServiceLoader } from "../../shared/http/services/ServiceLoader";
+import { date } from "../../shared/utils/time";
 import { ProjectDTO } from "../models/ProjectDTO";
 
 export class ProjectService {
@@ -19,16 +19,16 @@ export class ProjectService {
       let language = project.language && project.language.toLowerCase();
       const createdAt = date(new Date(project.created_at));
       const updatedAt = date(new Date(project.updated_at));
-      
+
       if (language === "css") {
-        language = 'css3';
-      }      
+        language = "css3";
+      }
       return {
         ...project,
         language,
         created_at: createdAt,
         updated_at: updatedAt,
-      }
+      };
     });
   }
 
@@ -40,6 +40,8 @@ export class ProjectService {
   }
 
   public getProjects(): Promise<ProjectDTO[]> {
-    return this.projects.then(projects => this.transformProjectLanguage(projects));
+    return this.projects.then((projects) =>
+      this.transformProjectLanguage(projects)
+    );
   }
 }

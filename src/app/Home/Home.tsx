@@ -1,5 +1,5 @@
-import logo from "../../assets/images/logo.svg";
-import { PillButton } from "../../shared/components/PillButton/PillButton";
+import logo from "../shared/assets/images/logo.svg";
+import { PillButton } from "../shared/components/PillButton/PillButton";
 import "./Home.css";
 
 export function Home() {

@@ -1,30 +1,46 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 import { AppContainer } from "./App.styles";
-import { GlobalStyle } from "./assets/styles/global";
-import { DarkTheme, LightTheme } from "./configs/themes/default";
+import { NavBar } from "./NavBar/NavBar";
+import { GlobalStyle } from "./shared/assets/styles/global";
+import { DarkTheme, LightTheme } from "./shared/configs/themes/default";
 import { ServiceLoader } from "./shared/http/services/ServiceLoader";
 import TimeUtils from "./shared/utils/time";
 
-function App() {
-  ServiceLoader.getInstance();
+type AppState = {
+  theme: DefaultTheme;
+};
 
-  let theme = LightTheme;
-  const hours = TimeUtils.hours;  
-
-  if (hours >= 18 || hours <= 6) {
-    theme = DarkTheme;
+export class App extends React.Component<{}, AppState> {
+  constructor(props: any) {
+    super(props);
+    this.state = this.setState();
+    ServiceLoader.getInstance();
   }
 
-  return (
-    <AppContainer>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
+  setState(): AppState {
+    const hours = TimeUtils.hours;
+    if (hours >= 18 || hours <= 6) {
+      return { theme: DarkTheme };
+    } else {
+      return {
+        theme: LightTheme,
+      }
+    }
+  }
+
+  render(): React.ReactNode {
+    return (
+      <AppContainer>
+        <ThemeProvider theme={this.state.theme}>
+          <GlobalStyle />
+          <NavBar />
           <Outlet />
-      </ThemeProvider>
-    </AppContainer>
-  );
+        </ThemeProvider>
+      </AppContainer>
+    );
+  }
 }
 
 export default App;

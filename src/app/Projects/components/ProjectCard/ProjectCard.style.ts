@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BorderDiv } from "../../../../shared/components/BorderDiv/BorderDiv";
+import { BorderDiv } from "../../../shared/components/BorderDiv/BorderDiv";
 
 export const ProjectCardStyle = styled(BorderDiv)`
   flex: 1;
@@ -7,9 +7,10 @@ export const ProjectCardStyle = styled(BorderDiv)`
   flex-direction: column;
   gap: 0.5rem;
   overflow: hidden;
-  min-width: calc(20rem - 2vmax);
-  max-width: calc(24rem - 2vmax);
-  min-height: calc(10rem - 2vmax);
+  min-width: calc(24rem - 2%);
+  max-width: calc(24rem - 2%);
+  min-height: calc(13rem - 2%);
+  max-height: calc(13rem - 2%);
 
   > header {
     display: flex;
@@ -25,8 +26,10 @@ export const ProjectCardStyle = styled(BorderDiv)`
 
   > p {
     flex: 1;
-    padding: 0.25rem 0.5rem;
+    align-self: center;
     font-weight: normal;
+    text-align: center;
+    padding: 0.25rem 0.5rem;    
   }
 
   > footer {
@@ -39,16 +42,16 @@ export const ProjectCardStyle = styled(BorderDiv)`
       display: flex;
       align-items: baseline;
       gap: 0.25rem;
-      
+
       a {
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        padding: 0.5rem;	
+
+        padding: 0.5rem;
         border-radius: 0.25rem 0.25rem 0 0;
         color: var(--primary);
-        
+
         transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
 
         &:hover,
@@ -70,7 +73,7 @@ export const ProjectCardStyle = styled(BorderDiv)`
       span {
         display: flex;
         flex-direction: column;
-        
+
         color: var(--title);
         font-weight: bold;
 
@@ -80,7 +83,7 @@ export const ProjectCardStyle = styled(BorderDiv)`
         }
 
         &:nth-child(1) {
-          padding-right: 0.25rem;          
+          padding-right: 0.25rem;
         }
 
         ~ span {

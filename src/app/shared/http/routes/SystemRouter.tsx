@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import App from "../../../App";
-import { Home } from "../../../pages/Home/Home";
-import { NotFound } from "../../../pages/NotFound/NotFound";
-import { Projects } from "../../../pages/Projects/Projects";
+import { Home } from "../../../Home/Home";
+import { NotFound } from "../../../NotFound/NotFound";
+import { Projects } from "../../../Projects/Projects";
 
 export function SystemRouter() {
   return (

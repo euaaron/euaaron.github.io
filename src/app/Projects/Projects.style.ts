@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const ProjectsContainer = styled.main`
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   gap: 4rem;
+  width: 90vw;
 
-  header {
-    position: relative;
+  > header {
     top: 2rem;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: left;
     gap: 2rem;
 
     label {
@@ -37,7 +40,7 @@ export const ProjectsContainer = styled.main`
       input {
         flex: 1;
         height: 1.5rem;
-        width: 40vw;
+        width: calc(20vw + 12rem);
 
         background: transparent;
         border: none;
@@ -59,31 +62,9 @@ export const ProjectsContainer = styled.main`
 `;
 
 export const ProjectsList = styled.section`
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;  
   align-items: center;
-  max-width: calc(100% - 2vmax);
-
-  ul {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-
-    max-width: calc(100% - 2vmax);
-
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      flex: 1;
-      display: flex;
-      flex-grow: 1;
-    }
-  }
+  justify-content: center;
+  gap: 0.5rem;
 `;

@@ -6,14 +6,10 @@ export class RepositoryService implements IService<RepositoryDTO[]> {
   private repositories: Promise<RepositoryDTO[]>;
 
   private constructor() {
-    this.repositories = this.getFromGitHub();
-  }
-  
-  getInstance(): IService<RepositoryDTO[]> {
-    throw new Error("Method not implemented.");
+    this.repositories = this.cacheRepositoryData();
   }
 
-  private getFromGitHub(): Promise<RepositoryDTO[]> {
+  public getUpdates(): Promise<RepositoryDTO[]> {
     return fetch("https://api.github.com/users/euaaron/repos").then(
       (response) => {
         return response
@@ -28,6 +24,39 @@ export class RepositoryService implements IService<RepositoryDTO[]> {
           );
       }
     );
+  }
+
+  private cacheRepositoryData(): Promise<RepositoryDTO[]> {
+    const lastReposUpdate = localStorage.getItem("lastReposUpdate");
+    const cachedRepos = localStorage.getItem("repositories");
+
+    if (lastReposUpdate && cachedRepos) {
+      const lastUpdate = new Date(lastReposUpdate).getMinutes();
+      const now = new Date().getMinutes();
+
+      if (now - lastUpdate < 30) {
+        let repos: RepositoryDTO[] = [];
+
+        JSON.parse(cachedRepos).forEach((repo: RepositoryDTO) => {
+          repos.push(repo);
+        });
+
+        this.repositories = new Promise((resolve) => resolve(repos));
+      }
+      return this.repositories;
+    }
+
+    this.repositories = this.getUpdates();
+
+    return this.repositories.then((repos: RepositoryDTO[]) => {
+      localStorage.setItem("repositories", JSON.stringify(repos));
+      localStorage.setItem("lastReposUpdate", new Date().toString());
+      return repos;
+    });
+  }
+
+  public getInstance(): IService<RepositoryDTO[]> {
+    throw new Error("Method not implemented.");
   }
 
   public static getInstance(): RepositoryService {

@@ -1,5 +1,5 @@
 import { AlertTriangle, ArrowLeft } from "react-feather";
-import { PillButton } from "../../shared/components/PillButton/PillButton";
+import { PillButton } from "../shared/components/PillButton/PillButton";
 import { NotFoundPage } from "./NotFound.styles";
 
 export function NotFound() {
