@@ -12,6 +12,19 @@ export const GlobalStyle = createGlobalStyle`
     --danger: ${(props) => props.theme.colors.danger};
     --disabled: ${(props) => props.theme.colors.disabled};
   }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;    
+    height: 0.5rem;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--primary);
+    border-radius: 1rem;
+  }
   
   * {
     margin: 0;
@@ -27,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     @media (max-width: 720px) {
       font-size: 87.5%;
     }
+
   }
   
   body {
@@ -35,14 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
-  }
-
-  div#root {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+    overflow: hidden;
   }
   
   body, input, button, textarea {

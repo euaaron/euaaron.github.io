@@ -5,23 +5,29 @@ interface NavBarItemProps {
 }
 
 export const NavBarContainer = styled.nav`
-  display: flex;
-  align-items: center;
-  padding: 1rem 2rem 1rem 1.25rem;
+  z-index: 1;
+  position: fixed;
+  background: var(--background);
   width: 100%;
 
-  > button {
-    color: ${({ theme }) =>
-      theme.type === "light" ? "var(--secondary)" : "var(--primary)"};
-  }
-
-  > ul {
-    width: 100%;
+  div {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    list-style: none;
-    gap: 1rem;
+    align-items: center;
+    padding: 1rem 2rem 1rem 1.25rem;
+
+    > button {
+      color: ${({ theme }) =>
+        theme.type === "light" ? "var(--secondary)" : "var(--primary)"};
+    }
+
+    > ul {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      list-style: none;
+      gap: 1rem;
+    }
   }
 `;
 

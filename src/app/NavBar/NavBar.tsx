@@ -62,18 +62,20 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
   render(): React.ReactNode {
     return (
       <NavBarContainer>
-        {this.props.children}
-        <ul>
-          {this.state.pages.map((page) => (
-            <NavBarItem
-              key={page.name}
-              isActive={page.isActive}
-              onClick={() => this.handleNavigation()}
-            >
-              <Link to={page.path}>{page.name}</Link>
-            </NavBarItem>
-          ))}
-        </ul>
+        <div>
+          {this.props.children}
+          <ul>
+            {this.state.pages.map((page) => (
+              <NavBarItem
+                key={page.name}
+                isActive={page.isActive}
+                onClick={() => this.handleNavigation()}
+              >
+                <Link to={page.path}>{page.name}</Link>
+              </NavBarItem>
+            ))}
+          </ul>
+        </div>
       </NavBarContainer>
     );
   }

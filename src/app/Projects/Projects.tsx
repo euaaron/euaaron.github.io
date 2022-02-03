@@ -48,8 +48,25 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   filterProjects(search: string) {
+    let foundSome = false;
     const filteredProjects = this.state.projects.filter((project) => {
-      return RegExp(search, "i").test(JSON.stringify(project));      
+      const searchObj = (searchTerm: string) =>
+        RegExp(searchTerm, "i").test(JSON.stringify(project));
+
+      if (project.language === search) {
+        foundSome = true;
+        return true;
+      }
+
+      if (foundSome) {
+        return false;
+      }
+
+      if (project.language !== search) {
+        return searchObj(search);
+      }
+
+      return searchObj(search);
     });
     this.setState({ filteredProjects });
   }
@@ -74,7 +91,9 @@ export class Projects extends React.Component<{}, ProjectState> {
         </header>
         <ProjectsList>
           {this.state.filteredProjects?.map((project) => (
-            <ProjectCard key={project.full_name} project={project} />
+            <li key={project.full_name}>
+              <ProjectCard project={project} />
+            </li>
           ))}
         </ProjectsList>
       </ProjectsContainer>

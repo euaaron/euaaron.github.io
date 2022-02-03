@@ -32,6 +32,12 @@ export class ProjectService {
     });
   }
 
+  private orderProjectByLastUpdate(repos: ProjectDTO[]): ProjectDTO[] {
+    return repos.sort((a: ProjectDTO, b: ProjectDTO) => {
+      return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+    });
+  }
+
   public static getInstance(): ProjectService {
     if (!ProjectService.instance) {
       ProjectService.instance = new ProjectService();
@@ -42,6 +48,6 @@ export class ProjectService {
   public getProjects(): Promise<ProjectDTO[]> {
     return this.projects.then((projects) =>
       this.transformProjectLanguage(projects)
-    );
+    ).then((projects) => this.orderProjectByLastUpdate(projects));
   }
 }

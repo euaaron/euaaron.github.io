@@ -35,23 +35,23 @@ export class App extends React.Component<{}, AppState> {
   toggleTheme(): void {
     this.setState({
       theme: this.state.theme === DarkTheme ? LightTheme : DarkTheme,
-      hasPreferences: true
+      hasPreferences: true,
     });
   }
 
   render(): React.ReactNode {
     return (
-      <AppContainer>
-        <ThemeProvider theme={this.state.theme}>
-          <GlobalStyle />
-          <NavBar>
-            <button onClick={() => this.toggleTheme()}>
-              {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
-            </button>
-          </NavBar>
+      <ThemeProvider theme={this.state.theme}>
+        <GlobalStyle />
+        <NavBar>
+          <button onClick={() => this.toggleTheme()} title="Alterar Tema">
+            {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
+          </button>
+        </NavBar>
+        <AppContainer>
           <Outlet />
-        </ThemeProvider>
-      </AppContainer>
+        </AppContainer>
+      </ThemeProvider>
     );
   }
 }

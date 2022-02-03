@@ -7,10 +7,6 @@ export const ProjectCardStyle = styled(BorderDiv)`
   flex-direction: column;
   gap: 0.5rem;
   overflow: hidden;
-  min-width: calc(24rem - 2%);
-  max-width: calc(24rem - 2%);
-  min-height: calc(13rem - 2%);
-  max-height: calc(13rem - 2%);
 
   > header {
     display: flex;

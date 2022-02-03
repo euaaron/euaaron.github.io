@@ -6,9 +6,11 @@ export const ProjectsContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  text-align: center;
+  overflow: hidden;
   gap: 4rem;
-  width: 90vw;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;  
 
   > header {
     top: 2rem;
@@ -61,10 +63,28 @@ export const ProjectsContainer = styled.main`
   }
 `;
 
-export const ProjectsList = styled.section`
+export const ProjectsList = styled.ul`  
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   align-items: center;
+  align-self: center;
   justify-content: center;
   gap: 0.5rem;
+  
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  list-style: none;
+  padding: 2rem 0 4rem;
+
+  li {
+    position: relative;
+    flex: 1;
+    display: flex;
+    min-width: calc(24rem - 2%);
+    max-width: calc(24rem - 2%);
+    min-height: calc(13rem - 2%);
+    max-height: calc(13rem - 2%);
+  }
 `;
