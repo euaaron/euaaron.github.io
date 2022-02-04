@@ -10,7 +10,7 @@ export const ProjectsContainer = styled.main`
   gap: 1rem;
   width: 100%;
   height: 100%;
-  padding: 2rem 1rem 1rem;
+  padding: 3rem 1rem 1rem;
   text-align: center;
 
   
