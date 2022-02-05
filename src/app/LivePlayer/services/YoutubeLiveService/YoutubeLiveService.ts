@@ -1,3 +1,5 @@
+import { LIVE_API } from '../../../shared/configs/environment';
+
 interface LiveStreamDTO {
   isLive: boolean;
   liveStreamUrl?: string;
@@ -21,7 +23,7 @@ export class YoutubeLiveService {
   }
 
   private loadLiveStream(): Promise<LiveStreamDTO> {
-    return fetch(`http://localhost:3000/youtube?type=user&id=relbeits`, {
+    return fetch(`${LIVE_API}/youtube?type=user&id=relbeits`, {
       method: "GET",
     }).then(
       (response) => {
