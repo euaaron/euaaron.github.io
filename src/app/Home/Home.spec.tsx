@@ -4,12 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Home } from "./Home";
 
 describe("Testing Home", () => {
-  it("should render learn react link", async () => {
+  it("should render Home Page", async () => {
     render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
-    expect(true).toBe(true);
+    expect(document.body.innerHTML.includes("Aaron Carneiro")).toBe(true);
   });
 });
