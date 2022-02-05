@@ -1,8 +1,10 @@
 import React from "react";
 import { XCircle, Youtube } from "react-feather";
 import { Rnd } from "react-rnd";
+import { IService } from "../shared/http/services/IService";
+import { ServiceLoader } from "../shared/http/services/ServiceLoader";
 import { LiveButton, LiveContainer } from "./LivePlayer.style";
-import { YoutubeLiveService } from "./services/YoutubeLiveService/YoutubeLiveService";
+import { LiveStreamDTO } from "./services/YoutubeLiveService/YoutubeLiveService";
 
 type LivePlayerState = {
   isClosed: boolean;
@@ -11,8 +13,11 @@ type LivePlayerState = {
 };
 
 export class LivePlayer extends React.Component<{}, LivePlayerState> {
+  private youtube: IService<LiveStreamDTO>;
+
   constructor(props: any) {
     super(props);
+    this.youtube = ServiceLoader.getInstance().getService("youtube");
     this.state = {
       isClosed: false,
       isVisible: false,
@@ -31,10 +36,10 @@ export class LivePlayer extends React.Component<{}, LivePlayerState> {
   }
 
   checkLiveState() {
-    YoutubeLiveService.getInstance()
-      .getLiveStreams()
+    this.youtube
+      .getAll()
       .then(({ isLive, liveStreamUrl }) => {
-        if (liveStreamUrl) {
+        if (isLive) {
           this.setState({
             isVisible: isLive,
           });
@@ -42,6 +47,11 @@ export class LivePlayer extends React.Component<{}, LivePlayerState> {
             liveUrl: liveStreamUrl,
           });
         }
+      })
+      .catch((err) => {
+        this.setState({
+          isClosed: true,
+        });
       });
   }
 

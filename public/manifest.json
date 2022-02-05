@@ -1,9 +1,11 @@
 {
+  "id": "/",
   "short_name": "Aaron Carneiro",
   "name": "Aaron Carneiro Portfolio",
+  "description": "Aaron Carneiro's portfolio",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon128.png",
       "sizes": "128x128",
       "type": "image/png"
     },

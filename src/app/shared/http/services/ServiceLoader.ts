@@ -1,3 +1,4 @@
+import { YoutubeLiveService } from "../../../LivePlayer/services/YoutubeLiveService/YoutubeLiveService";
 import { IService } from "./IService";
 import { RepositoryService } from "./Repo/RepositoryService";
 
@@ -22,5 +23,6 @@ export class ServiceLoader {
 
   private loadServices(): void {
     this.services["repository"] = RepositoryService.getInstance();
+    this.services["youtube"] = YoutubeLiveService.getInstance();
   }
 }
