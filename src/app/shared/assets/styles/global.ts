@@ -50,6 +50,15 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+
+  div#root {
+    flex: 1;
+    height: calc(100vh - 2rem);
+    position: relative;
   }
   
   body, input, button, textarea {

@@ -12,16 +12,20 @@ export class RepositoryService implements IService<RepositoryDTO[]> {
   public getUpdates(): Promise<RepositoryDTO[]> {
     return fetch("https://api.github.com/users/euaaron/repos").then(
       (response) => {
-        return response
-          .json()
-          .then((data) => {
-            return data.map((repo: RepositoryDTO) => {
-              return repo as RepositoryDTO;
-            });
-          })
-          .then((data) =>
-            data.filter((repo: RepositoryDTO) => repo.fork === false)
-          );
+        if (response !== undefined) {
+          return response
+            .json()
+            .then((data) => {
+              return data.map((repo: RepositoryDTO) => {
+                return repo as RepositoryDTO;
+              });
+            })
+            .then((data) =>
+              data.filter((repo: RepositoryDTO) => repo.fork === false)
+            );
+        } else {
+          return [];
+        }
       }
     );
   }

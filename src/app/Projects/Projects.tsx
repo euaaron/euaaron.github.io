@@ -1,9 +1,14 @@
 import React from "react";
-import { Search } from "react-feather";
+import { RefreshCw, Search } from "react-feather";
 import { MainTitle } from "../shared/components/MainTitle/MainTitle";
 import { ProjectCard } from "./components/ProjectCard/ProjectCard";
 import { ProjectDTO } from "./models/ProjectDTO";
-import { ProjectsContainer, ProjectsList } from "./Projects.style";
+import {
+  ErrorContainer,
+  ProjectsContainer,
+  ProjectsList,
+  SearchProject
+} from "./Projects.style";
 import { ProjectService } from "./services/ProjectService";
 
 type ProjectState = {
@@ -22,7 +27,9 @@ export class Projects extends React.Component<{}, ProjectState> {
       projects: [],
       search: "",
     };
+  }
 
+  componentDidMount() {
     this.handleProjects();
   }
 
@@ -67,30 +74,47 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   render(): React.ReactNode {
+    const isVisible = this.state.filteredProjects.length === 0 ? false : true;
     return (
       <ProjectsContainer>
-        <header>
-          <MainTitle>Projetos</MainTitle>
-          <label htmlFor="searchProjects">
-            <input
-              id="searchProjects"
-              name="searchProjects"
-              type="text"
-              value={this.state.search}
-              onChange={(e) => this.handleSearch(e)}
-            />
-            <span title="Pesquisar projeto">
-              <Search />
-            </span>
-          </label>
-        </header>
-        <ProjectsList>
-          {this.state.filteredProjects?.map((project) => (
-            <li key={project.full_name}>
-              <ProjectCard project={project} />
-            </li>
-          ))}
-        </ProjectsList>
+        <MainTitle>Projetos</MainTitle>
+        {isVisible ? (
+          <ProjectsList>
+            <SearchProject htmlFor="searchProjects">
+              <input
+                id="searchProjects"
+                name="searchProjects"
+                type="text"
+                value={this.state.search}
+                onChange={(e) => this.handleSearch(e)}
+              />
+              <span title="Pesquisar projeto">
+                <Search />
+              </span>
+            </SearchProject>
+            <ul>
+              {this.state.filteredProjects?.map((project) => (
+                <li key={project.full_name}>
+                  <ProjectCard project={project} />
+                </li>
+              ))}
+            </ul>
+          </ProjectsList>
+        ) : (
+          <ErrorContainer>
+            <i className="devicon-github-original"></i>
+            <strong>
+              Erro ao buscar dados do GitHub. Volte novamente mais tarde.
+            </strong>
+            <button
+              onClick={() => this.initProjects()}
+              title="Forçar Atualização"
+            >
+              <RefreshCw />
+              Forçar atualização
+            </button>
+          </ErrorContainer>
+        )}
       </ProjectsContainer>
     );
   }

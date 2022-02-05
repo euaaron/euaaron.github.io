@@ -3,6 +3,7 @@ import { Moon, Sun } from "react-feather";
 import { Outlet } from "react-router-dom";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { AppContainer } from "./App.styles";
+import { LivePlayer } from "./LivePlayer/LivePlayer";
 import { NavBar } from "./NavBar/NavBar";
 import { GlobalStyle } from "./shared/assets/styles/global";
 import { DarkTheme, LightTheme } from "./shared/configs/themes/default";
@@ -51,6 +52,7 @@ export class App extends React.Component<{}, AppState> {
         <AppContainer>
           <Outlet />
         </AppContainer>
+        <LivePlayer />
       </ThemeProvider>
     );
   }

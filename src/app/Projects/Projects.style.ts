@@ -6,103 +6,143 @@ export const ProjectsContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;
   gap: 1rem;
   width: 100%;
   height: 100%;
   padding: 3rem 1rem 1rem;
   text-align: center;
+`;
 
-  
-  > header {    
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-    gap: 2rem;
+export const SearchProject = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  overflow: hidden;
+  gap: 0.5rem;
 
-    label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  background: var(--background);
 
-      border-radius: 0.5rem;
-      padding: 0.25rem 0.25rem 0.25rem 1rem;
+  filter: ${({ theme }) =>
+    theme.type === "light" ? "brightness(1.2)" : "brightness(0.8)"};
+
+  &:focus-within {
+    outline: 0.25rem solid var(--disabled);
+  }
+
+  > input {
+    flex: 1;
+    height: 1.5rem;
+    width: calc(20vw + 12rem);
+
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--foreground);
+    font-size: 1.25rem;
+  }
+
+  > span {
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: filter 0.4s ease-in-out;
+
+    &:hover,
+    &:focus {
       background: var(--background);
-      filter: ${({ theme }) =>
-        theme.type === "light" ? "brightness(1.2)" : "brightness(0.8)"};
+      filter: brightness(1.2);
+    }
 
-      &:focus-within {
-        outline: 0.25rem solid var(--disabled);
-      }
-
-      input {
-        flex: 1;
-        height: 1.5rem;
-        width: calc(20vw + 12rem);
-
-        background: transparent;
-        border: none;
-        outline: none;
-        color: var(--foreground);
-        font-size: 1.25rem;
-      }
-
-      > span {
-        border-radius: 0.5rem;
-        padding: 0.5rem 0.75rem;
-        color: var(--foreground);
-        cursor: pointer;
-        transition: filter 0.4s ease-in-out;
-
-        &:hover,
-        &:focus {
-          background: var(--background);
-          filter: brightness(1.2);
-        }
-
-        svg {
-          width: 1.5rem;
-          height: 1.5rem;
-        }
-      }
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 `;
 
-export const ProjectsList = styled.ul`
+export const ProjectsList = styled.section`
   flex: 1;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  align-self: center;
-  justify-content: center;
-  gap: 0.5rem;
-
+  justify-content: flex-start;
+  gap: 1rem;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  list-style: none;
-  padding: 2rem 0 4rem;
-  position: relative;
-  top: 0;
+  height: max-content;
+    
+  padding-bottom: 2rem;  
 
-  li {
-    position: relative;
+  > ul {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-self: center;
     justify-content: center;
-    align-items: center;
     gap: 0.5rem;
 
-    min-width: calc(24rem - 2%);
-    max-width: calc(24rem - 2%);
-    min-height: calc(13rem - 2%);
-    max-height: calc(13rem - 2%);
+    list-style: none;
+
+    li {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      min-width: calc(24rem - 2%);
+      max-width: calc(24rem - 2%);
+      min-height: calc(13rem - 2%);
+      max-height: calc(13rem - 2%);
+    }
+  }
+`;
+
+export const ErrorContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  > i {
+    font-size: calc(12rem - 2%);
+  }
+
+  > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.5rem 1rem;
+    outline: 0.25rem solid transparent;
+    border-radius: 0.5rem;
+
+    color: var(--background);
+    font-weight: normal;
+    font-size: 1.2rem;
+    background: var(--secondary);
+
+    transition: filter 0.4s ease-in-out, outline 0.4s ease-in-out;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &:hover,
+    &:focus {
+      filter: brightness(1.2);
+      outline: 0.25rem solid var(--disabled);
+    }
   }
 `;

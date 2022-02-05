@@ -5,8 +5,10 @@ interface NavBarItemProps {
 }
 
 export const NavBarContainer = styled.nav`  
-  width: 100%;
-  position: static;
+  width: 100%;  
+  z-index: 20;
+  position: sticky;
+  top: 0;
   background: var(--background);  
   transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 

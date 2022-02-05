@@ -1,9 +1,15 @@
-import axios from "axios";
-import cheerio from "cheerio";
-
 interface LiveStreamDTO {
   isLive: boolean;
   liveStreamUrl?: string;
+}
+
+interface LiveAPIDTO {
+  status: boolean;
+  url: string;
+  error?: {
+    status: number;
+    message: string;
+  };
 }
 
 export class YoutubeLiveService {
@@ -15,26 +21,24 @@ export class YoutubeLiveService {
   }
 
   private loadLiveStream(): Promise<LiveStreamDTO> {
-    const headers = new Headers();
-    headers.append("Content-Type", "text/html");
+    return fetch(`http://localhost:3000/youtube?type=user&id=relbeits`, {
+      method: "GET",
+    }).then(
+      (response) => {
+        return response.json().then((data: LiveAPIDTO) => {
+          const result: LiveStreamDTO = {
+            isLive: data.status,
+            liveStreamUrl: data.url,
+          }
 
-    return axios
-      .request({
-        method: "GET",
-        url: "https://youtube.com/user/relbeits/live",
-        headers: {},
-      })
-      .then((response: any) => {
-        const html = JSON.stringify(response.data);
-        console.log(html);
-        const page = cheerio.load(html);
-        const liveStreamUrl = page('link[rel="canonical"]').attr("href");
-        const isLive = String(liveStreamUrl).includes("watch");
-        return {
-          isLive,
-          liveStreamUrl,
-        };
-      });
+          if(data.url.includes('watch')) {
+            const videoID = data.url.split("=")[1];
+            result.liveStreamUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
+          }
+          return result;
+        });
+      }
+    );
   }
 
   public static getInstance(): YoutubeLiveService {

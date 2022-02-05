@@ -34,7 +34,9 @@ export class ProjectService {
 
   private orderProjectByLastUpdate(repos: ProjectDTO[]): ProjectDTO[] {
     return repos.sort((a: ProjectDTO, b: ProjectDTO) => {
-      return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+      return (
+        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+      );
     });
   }
 
@@ -46,8 +48,14 @@ export class ProjectService {
   }
 
   public getProjects(): Promise<ProjectDTO[]> {
-    return this.projects.then((projects) =>
-      this.transformProjectLanguage(projects)
-    ).then((projects) => this.orderProjectByLastUpdate(projects));
+    try {
+      const projects = this.projects
+        .then((projects) => this.transformProjectLanguage(projects))
+        .then((projects) => this.orderProjectByLastUpdate(projects));
+      return projects;
+    } catch (err) {
+      console.log(err);
+      return new Promise((resolve) => resolve([]));
+    }
   }
 }
