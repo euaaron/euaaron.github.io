@@ -1,6 +1,6 @@
-import { LIVE_API } from "../../../shared/configs/environment";
-import { StorageService } from "../../../shared/configs/services/StorageService";
-import { IService } from "../../../shared/http/services/IService";
+import { LIVE_API } from "../../../../shared/configs/environment";
+import { StorageService } from "../../../../shared/configs/services/StorageService";
+import { IService } from "../../../../shared/http/services/IService";
 
 export interface LiveStreamDTO {
   isLive: boolean;

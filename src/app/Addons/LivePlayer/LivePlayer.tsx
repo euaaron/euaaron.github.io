@@ -1,8 +1,8 @@
 import React from "react";
 import { XCircle, Youtube } from "react-feather";
 import { Rnd } from "react-rnd";
-import { IService } from "../shared/http/services/IService";
-import { ServiceLoader } from "../shared/http/services/ServiceLoader";
+import { IService } from "../../shared/http/services/IService";
+import { ServiceLoader } from "../../shared/http/services/ServiceLoader";
 import { LiveButton, LiveContainer } from "./LivePlayer.style";
 import { LiveStreamDTO } from "./services/YoutubeLiveService/YoutubeLiveService";
 

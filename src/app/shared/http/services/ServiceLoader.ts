@@ -1,4 +1,4 @@
-import { YoutubeLiveService } from "../../../LivePlayer/services/YoutubeLiveService/YoutubeLiveService";
+import { YoutubeLiveService } from "../../../Addons/LivePlayer/services/YoutubeLiveService/YoutubeLiveService";
 import { IService } from "./IService";
 import { RepositoryService } from "./Repo/RepositoryService";
 

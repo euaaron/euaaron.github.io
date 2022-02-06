@@ -1,13 +1,5 @@
 import styled from "styled-components";
-import AvifBg from "../shared/assets/images/background.avif";
-import JPGBg from "../shared/assets/images/background.jpg";
-import WebpBg from "../shared/assets/images/background.webp";
-
-function getBackground() {
-  const htmlClasses = document.documentElement.classList;
-  return htmlClasses.contains("avif") ? AvifBg : htmlClasses.contains("webp") ? WebpBg : JPGBg;
-
-}
+import Background from "../shared/assets/images/background.jpg";
 
 export const HomeContainer = styled.section`
   flex: 1;
@@ -30,7 +22,7 @@ export const HomeContainer = styled.section`
     width: 100%;
     height: 100%;
 
-    background: url(${getBackground()}) no-repeat center bottom fixed;
+    background: url(${Background}) no-repeat center bottom fixed;
     background-color: #000;
     background-size: 90vmin;
     mix-blend-mode: ${({ theme }) =>
