@@ -1,10 +1,12 @@
 import React from "react";
+import { Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 import { NavBarContainer, NavBarItem } from "./NavBar.style";
 
 type NavigationState = {
   currentPage: string;
   lastPage: string;
+  isVisible: boolean;
   pages: Page[];
 };
 
@@ -24,6 +26,7 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
     this.state = {
       currentPage: "",
       lastPage: "",
+      isVisible: false,
       pages: [
         { name: "Início", path: "/", isActive: false },
         { name: "Projetos", path: "/projects", isActive: false },
@@ -59,11 +62,21 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
     this.handleLastPage();
   }
 
+  toggleMenu() {
+    this.setState({ isVisible: !this.state.isVisible });
+  }
+
   render(): React.ReactNode {
     return (
       <NavBarContainer>
-        <div>
-          {this.props.children}
+        {this.props.children}
+        <button title="Abrir Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
+          <Menu />
+        </button>
+        <aside className={this.state.isVisible ? 'active' : ''}>
+        <button title="Fechar Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
+          <X />
+        </button>
           <ul>
             {this.state.pages.map((page) => (
               <NavBarItem
@@ -75,7 +88,7 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
               </NavBarItem>
             ))}
           </ul>
-        </div>
+        </aside>
       </NavBarContainer>
     );
   }
