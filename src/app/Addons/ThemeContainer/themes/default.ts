@@ -14,6 +14,7 @@ export const DarkTheme: DefaultTheme = {
     warning: "#F6B450",
     danger: "#E95A5A",
     disabled: "#9EB2CF",
+    gradient: "linear-gradient(45deg, #ca5959 0%, #5475db 50%, #5475db 100%)"
   },
 };
 
@@ -24,12 +25,13 @@ export const LightTheme: DefaultTheme = {
   colors: {
     primary: "#50BBF6",
     secondary: "#BD93F9",
-    title: "#202034",
-    foreground: "#6272A4",
-    background: "#DFE9F5",
+    title: "#FDFDFF",
+    foreground: "#22222f",
+    background: "#6265A4",
     success: "#7FEC8A",
     warning: "#F6B450",
     danger: "#E95A5A",
     disabled: "#9EB2CF",
+    gradient: "linear-gradient(45deg, #282A36 20%, #4625bb 45%, #4625bb 100%)"
   },
 };

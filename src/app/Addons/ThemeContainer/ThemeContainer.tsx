@@ -3,8 +3,8 @@ import { Moon, Sun } from "react-feather";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { NavBar } from "../../NavBar/NavBar";
 import { GlobalStyle } from "../../shared/assets/styles/global";
-import { DarkTheme, LightTheme } from "../../shared/configs/themes/default";
 import TimeUtils from "../../shared/utils/time";
+import { DarkTheme, LightTheme } from "./themes/default";
 
 type ThemeState = {
   theme: DefaultTheme;

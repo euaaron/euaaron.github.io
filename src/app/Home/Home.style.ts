@@ -6,7 +6,7 @@ export const HomeContainer = styled.section`
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  position: relative;  
+  position: relative;
 
   width: 100%;
   height: calc(100vh - 5.05rem);
@@ -24,11 +24,10 @@ export const HomeContainer = styled.section`
     background-color: #000;
     background-size: 90vmin;
     mix-blend-mode: ${({ theme }) =>
-      theme.type === "light" ? "overlay" : "lighten"};
-    ${({ theme }) => theme.type === "light" && "filter: brightness(1.6)"};
+      theme.type === "light" ? "screen" : "lighten"};
     z-index: -1;
 
-    transition: all 0.4s ease-in-out;
+    transition: background 0.4s ease-in-out;
 
     @media (max-width: 768px) {
       background-size: 60vmax;
@@ -53,7 +52,7 @@ export const HomeTitle = styled.header`
   > h1 {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(45deg, #ca5959 0%, #5475db 50%, #5475db 100%);
+    background: var(--gradient);
     -webkit-text-stroke: 0.15rem transparent;
     -webkit-background-clip: text;
     font-weight: bold;
