@@ -1,9 +1,9 @@
 import React from "react";
 import { Moon, Sun } from "react-feather";
 import { DefaultTheme, ThemeProvider } from "styled-components";
-import { NavBar } from "../../NavBar/NavBar";
 import { GlobalStyle } from "../../shared/assets/styles/global";
 import TimeUtils from "../../shared/utils/time";
+import { NavBar } from "../NavBar/NavBar";
 import { DarkTheme, LightTheme } from "./themes/default";
 
 type ThemeState = {
@@ -15,6 +15,10 @@ export class ThemeContainer extends React.Component<{}, ThemeState> {
   constructor(props: any) {
     super(props);
     this.state = { theme: DarkTheme, hasPreferences: false };
+  }
+
+  componentDidMount() {
+    this.setTheme();
   }
 
   setTheme() {
