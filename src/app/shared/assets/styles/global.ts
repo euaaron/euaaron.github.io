@@ -26,7 +26,13 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 1rem;
   }
   
-  * {
+  html, body, div, main, aside, nav, header, footer, p, 
+  h1,  h2,  h3,  h4,  h5,  h6,  span, ul, li, a, img, button, 
+  input, textarea, select, option, iframe, form, label, fieldset,
+  legend, table, tr, td, th, tbody, thead, tfoot, text, pre, code, 
+  address, blockquote, dl, dt, dd, ol, menu, nav, article, aside, canvas, 
+  details, figcaption, figure, footer, header, hgroup, menu, nav, section, 
+  summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,21 +50,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background: var(--background);
-    color: var(--foreground);
     -webkit-font-smothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    background: var(--background);
+    
     transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-  }
-
-  div#root {
-    flex: 1;
-    height: calc(100vh - 2rem);
-    position: relative;
   }
   
   body, input, button, textarea {
@@ -69,10 +66,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 500;

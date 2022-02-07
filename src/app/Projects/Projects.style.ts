@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const ProjectsContainer = styled.main`
-  flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  width: 100%;
-  height: 100%;
-  padding: 3rem 1rem 1rem;
+  max-width: 100vw;
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
   text-align: center;
 `;
 
@@ -69,27 +69,20 @@ export const ProjectsList = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  width: 100%;
-  height: 100%;
-  height: max-content;
-    
-  padding-bottom: 2rem;  
-
+  justify-content: center;  
+  gap: 1.5rem;
+  
   > ul {
-    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-flow: row wrap;
+    align-items: stretch;
     align-self: center;
     justify-content: center;
     gap: 0.5rem;
 
     list-style: none;
 
-    li {
-      position: relative;
+    > li {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -97,10 +90,13 @@ export const ProjectsList = styled.section`
       align-items: center;
       gap: 0.5rem;
 
-      min-width: calc(24rem - 2%);
-      max-width: calc(24rem - 2%);
-      min-height: calc(13rem - 2%);
-      max-height: calc(13rem - 2%);
+      min-width: calc(16rem + 10vmin);
+      max-width: calc(16rem + 10vmin);
+      min-height: calc(6rem + 10vmin);
+
+      @media (max-width: 768px) {
+        max-width: 90vw;
+      }
     }
   }
 `;

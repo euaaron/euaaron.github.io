@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
-export const NotFoundPage = styled.div`
-  flex: 1;
+export const NotFoundPage = styled.div`  
+  width: 100%;
+  position: relative;
+  height: calc(100vh - 5.05rem);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  gap: 2rem;  
 
   header {
     display: flex;
@@ -53,8 +56,8 @@ export const NotFoundPage = styled.div`
       text-align: center;
 
       > svg {
-        height: calc(20rem - 2%);
-        width: calc(20rem - 2%);
+        height: 32vw;
+        width: 32vw;
       }
 
       aside {

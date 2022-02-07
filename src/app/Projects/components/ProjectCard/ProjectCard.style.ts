@@ -13,6 +13,7 @@ export const ProjectCardStyle = styled(BorderDiv)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
 
     padding: 0.25rem 0.5rem;
 

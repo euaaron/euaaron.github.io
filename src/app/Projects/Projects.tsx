@@ -74,7 +74,7 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   render(): React.ReactNode {
-    const isVisible = this.state.filteredProjects.length === 0 ? false : true;
+    const isVisible = this.state.projects.length === 0 ? false : true;
     return (
       <ProjectsContainer>
         <MainTitle>Projetos</MainTitle>

@@ -2,17 +2,15 @@ import styled from "styled-components";
 import Background from "../shared/assets/images/background.jpg";
 
 export const HomeContainer = styled.section`
-  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  position: relative;
-  top: -2rem;
+  position: relative;  
 
   width: 100%;
+  height: calc(100vh - 5.05rem);
   padding: 1rem;
-  height: 90%;
 
   &::before {
     content: "";
@@ -36,12 +34,13 @@ export const HomeContainer = styled.section`
       background-size: 60vmax;
     }
   }
-  
+
   @media (max-width: 768px) {
-    flex-direction: column;    
-    align-items: flex-end;    
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
     font-size: 1.75rem;
+    height: calc(100vh - 4rem);
   }
 `;
 
@@ -49,19 +48,20 @@ export const HomeTitle = styled.header`
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 0.5rem;
 
-  h1 {
+  > h1 {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(45deg, #ca5959 0%,#5475db 50%, #5475db 100%);
+    background: linear-gradient(45deg, #ca5959 0%, #5475db 50%, #5475db 100%);
     -webkit-text-stroke: 0.15rem transparent;
     -webkit-background-clip: text;
     font-weight: bold;
     background-clip: text;
     color: var(--background);
   }
-  
-  small {
+
+  > small {
     font-size: 1rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -81,20 +81,20 @@ export const HomeTitle = styled.header`
 export const SocialContainer = styled.div`
   display: flex;
   align-items: center;
-  
-  ul {
+
+  > ul {
     list-style: none;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     gap: 0.5rem;
 
-    li {
-      a {
+    > li {
+      > a {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 0.5rem;
 
         padding: 0.5rem;
@@ -140,10 +140,10 @@ export const SocialContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    ul {
+    > ul {
       flex-direction: column;
-      li {
-        a {
+      > li {
+        > a {
           flex-direction: row;
         }
       }
