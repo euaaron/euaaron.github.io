@@ -4,6 +4,7 @@ import App from "../../../App";
 import { Home } from "../../../Home/Home";
 import { NotFound } from "../../../NotFound/NotFound";
 import { Projects } from "../../../Projects/Projects";
+import { Skills } from "../../../Skills/Skills";
 
 export function SystemRouter() {
   return (
@@ -12,6 +13,7 @@ export function SystemRouter() {
         <Route index element={<Home />} />
         <Route path="projects" element={<Projects />} />
         <Route path="about" element={<About />} />
+        <Route path="skills" element={<Skills />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

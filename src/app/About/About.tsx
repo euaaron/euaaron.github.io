@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { SidedSection } from "../shared/components/SidedContainer/SidedSection";
+import { AboutContainer } from "./About.style";
 
 export class About extends React.Component {
   render() {
@@ -12,7 +12,7 @@ export class About extends React.Component {
     );
 
     return (
-      <SidedSection title="Sobre mim" subtitle={subtitle} reverseHeader>
+      <AboutContainer sectionTitle="Sobre mim" subtitle={subtitle} reverseHeader>
         <p>
           Sempre fui <span>apaixonado por criar</span> coisas, e apesar de ter
           mais afinidade com áreas de <span>tecnologia e artísticas</span>, não
@@ -49,7 +49,7 @@ export class About extends React.Component {
           outros desenvolvedores, quanto para o hardware onde ele irá ser
           executado.
         </p>
-      </SidedSection>
+      </AboutContainer>
     );
   }
 }

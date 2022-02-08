@@ -30,9 +30,13 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
       pages: [
         { name: "Início", path: "/", isActive: false },
         { name: "Projetos", path: "/projects", isActive: false },
+        { name: "Habilidades", path: "/skills", isActive: false },
         { name: "Sobre", path: "/about", isActive: false },
       ],
     };
+  }
+
+  componentDidMount() {
     this.handleActivePage();
   }
 
@@ -70,13 +74,21 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
     return (
       <NavBarContainer>
         {this.props.children}
-        <button title="Abrir Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
+        <button
+          title="Abrir Menu"
+          className="toggleMenu"
+          onClick={() => this.toggleMenu()}
+        >
           <Menu />
         </button>
-        <aside className={this.state.isVisible ? 'active' : ''}>
-        <button title="Fechar Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
-          <X />
-        </button>
+        <aside className={this.state.isVisible ? "active" : ""}>
+          <button
+            title="Fechar Menu"
+            className="toggleMenu"
+            onClick={() => this.toggleMenu()}
+          >
+            <X />
+          </button>
           <ul>
             {this.state.pages.map((page) => (
               <NavBarItem

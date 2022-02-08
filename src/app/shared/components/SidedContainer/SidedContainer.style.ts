@@ -22,7 +22,7 @@ export const SidedContainer = styled.section<ISidedProps>`
     max-width: 1920px;
     gap: 2.5rem;
 
-    span {
+    > span {
       color: var(--primary);
     }
 
@@ -40,8 +40,8 @@ export const SidedBox = styled(BorderDiv)`
   gap: 1rem;
 
   min-height: 50%;
-  text-align: justify;
   text-indent: 2rem;
+  text-align: justify;
   padding: 2.5rem 2.5rem;
 `;
 
