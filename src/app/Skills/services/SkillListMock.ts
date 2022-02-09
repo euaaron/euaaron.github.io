@@ -14,7 +14,7 @@ export const SkillList: ISkillModel[] = [
     name: "Programação Funcional",
   },
   {
-    level: 6,
+    level: 7,
     name: "Programação Estruturada",
   },
   {
@@ -22,7 +22,7 @@ export const SkillList: ISkillModel[] = [
     name: "Programação Orientada a Objetos",
   },
   {
-    level: 3,
+    level: 5,
     name: "Animação 2D e 3D",
   },
   {
@@ -42,27 +42,27 @@ export const SkillList: ISkillModel[] = [
     name: "Banco de Dados Não Relacional",
   },
   {
-    level: 4,
+    level: 5,
     name: "DevOps",
   },
   {
     level: 4,
-    name: "Arquitetura de Microserviços",
+    name: "Arquitetura de Micro-serviços",
   },
   {
-    level: 4,
+    level: 5,
     name: "Produção Audiovisual",
   },
   {
-    level: 4,
+    level: 6,
     name: "Web Design",
   },
   {
-    level: 2,
+    level: 1,
     name: "Modelagem e Escultura 3D",
   },
   {
-    level: 6,
+    level: 5,
     name: "Desenho Vetorial",
   }
 ];

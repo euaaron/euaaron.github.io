@@ -6,11 +6,13 @@ interface ISkillBarProps {
 }
 
 function getBackgroundColor(length: number) {
-  if (length <= 3) {
-    return "var(--warning)";
+  if (length <= 2) {
+    return "var(--danger)";
   } else if (length <= 4) {
+    return "var(--warning)";
+  } else if (length <= 6) {
     return "var(--primary)";
-  } else if (length <= 9) {
+  } else if (length <= 8) {
     return "var(--success)";
   } else {
     return "var(--secondary)";

@@ -11,7 +11,6 @@ export const SidedContainer = styled.section<ISidedProps>`
   padding: 2rem 2rem;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 5.1rem);
 
   > div {
     flex: 1;
