@@ -8,7 +8,7 @@ export const SkillsContainer = styled.section`
   justify-content: center;
   align-items: center;
   padding: 2rem 2rem;
-  min-height: calc(100vh - 5.1rem);
+  height: calc(100% - 3.5rem);
 
   > div {
     flex: 1;
@@ -23,7 +23,7 @@ export const SkillsContainer = styled.section`
       color: var(--primary);
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1280px) {
       flex-direction: column;
     }
   }
@@ -35,7 +35,7 @@ export const SkillsHeader = styled(SidedHeader)`
   flex-direction: column;
   max-width: 40%;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1280px) {
     flex: 1;
   }
 `;

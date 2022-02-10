@@ -14,6 +14,7 @@ type Page = {
   name: string;
   path: string;
   isActive: boolean;
+  dropdown?: Page[];
 };
 
 interface NavBarProps {
@@ -30,6 +31,23 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
       pages: [
         { name: "Início", path: "/", isActive: false },
         { name: "Habilidades", path: "/skills", isActive: false },
+        {
+          name: "Experiência",
+          path: "/experience",
+          isActive: false,
+          dropdown: [
+            {
+              name: "Acadêmica",
+              path: "/experience/academic",
+              isActive: false,
+            },
+            {
+              name: "Profissional",
+              path: "/experience/professional",
+              isActive: false,
+            },
+          ],
+        },
         { name: "Projetos", path: "/projects", isActive: false },
         { name: "Sobre", path: "/about", isActive: false },
       ],
