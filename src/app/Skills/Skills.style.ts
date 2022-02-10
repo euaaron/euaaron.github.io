@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BorderDiv } from "../shared/components/BorderDiv/BorderDiv";
 import { SidedHeader } from "../shared/components/SidedContainer/SidedContainer.style";
 
 export const SkillsContainer = styled.section`
@@ -41,7 +40,7 @@ export const SkillsHeader = styled(SidedHeader)`
   }
 `;
 
-export const SkillsBox = styled(BorderDiv)`
+export const SkillsBox = styled.div`
   overflow: hidden;
   flex: 4;
   display: flex;

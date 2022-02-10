@@ -29,8 +29,8 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
       isVisible: false,
       pages: [
         { name: "Início", path: "/", isActive: false },
-        { name: "Projetos", path: "/projects", isActive: false },
         { name: "Habilidades", path: "/skills", isActive: false },
+        { name: "Projetos", path: "/projects", isActive: false },
         { name: "Sobre", path: "/about", isActive: false },
       ],
     };

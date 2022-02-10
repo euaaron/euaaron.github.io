@@ -9,7 +9,7 @@ export const HomeContainer = styled.section`
   position: relative;
 
   width: 100%;
-  height: 100%;
+  height: calc(100% - 3.5rem);
   padding: 1rem;
 
   &::before {
