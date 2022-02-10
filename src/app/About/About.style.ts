@@ -3,28 +3,36 @@ import { BorderDiv } from "../shared/components/BorderDiv/BorderDiv";
 import { SidedHeader } from "../shared/components/SidedContainer/SidedContainer.style";
 
 export const AboutContainer = styled.section`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem 2rem;
-  min-height: calc(100vh - 5.1rem);
+  max-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 10rem);
+  min-width: 100vw;
 
   > div {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: row-reverse;
     max-width: 1920px;
-    gap: 2.5rem;
+    gap: 4rem;
 
     span {
       color: var(--primary);
     }
+  }
+  @media (max-width: 900px) {
+    min-height: 0;    
 
-    @media (max-width: 900px) {
+    > div {
       flex-direction: column;
+      justify-content: space-between;
+      gap: 8rem;
     }
   }
 `;
@@ -36,19 +44,20 @@ export const AboutHeader = styled(SidedHeader)`
   max-width: 40%;
 
   @media (max-width: 900px) {
-    flex: 0;
+    max-width: 80%;    
   }
 `;
 
 export const AboutBox = styled(BorderDiv)`
-  overflow: hidden;
   flex: 3;
   display: flex;
   flex-direction: column;
-  justify-content: space;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: space-evenly;
   gap: 1rem;
-
-  text-indent: 2rem;  
+  
+  overflow: hidden;
+  max-width: 1280px;
+  text-indent: 2rem;
   padding: 2.5rem 2.5rem;
 `;

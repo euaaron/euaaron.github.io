@@ -3,6 +3,7 @@ import { Moon, Sun } from "react-feather";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../../shared/assets/styles/global";
 import TimeUtils from "../../shared/utils/time";
+import { LivePlayer } from "../LivePlayer/LivePlayer";
 import { NavBar } from "../NavBar/NavBar";
 import { DarkTheme, LightTheme } from "./themes/default";
 
@@ -47,6 +48,7 @@ export class ThemeContainer extends React.Component<{}, ThemeState> {
           <button onClick={() => this.toggleTheme()} title="Alterar Tema">
             {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
           </button>
+          <LivePlayer />
         </NavBar>
         {this.props.children}
       </ThemeProvider>

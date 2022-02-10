@@ -62,7 +62,13 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--background);
     
     transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+
+    > div#root {
+      width: 100%;
+      height: 100vh;
+    }
   }
+
   
   body, input, button, textarea {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',

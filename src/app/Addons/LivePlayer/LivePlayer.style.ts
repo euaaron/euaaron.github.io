@@ -1,7 +1,8 @@
+import { Rnd } from "react-rnd";
 import styled from "styled-components";
 
-interface LiveContainerProps {
-  isVisible: boolean;
+interface LiveContainerProps extends Rnd {
+  isVisible: boolean;  
 }
 
 export const LiveButton = styled.button`
@@ -10,15 +11,13 @@ export const LiveButton = styled.button`
   justify-content: center;
   gap: 0.5rem;
 
-  background: var(--danger);
-  border-radius: .5rem;
-  color: var(--background);
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  position: sticky;
-  bottom: calc(50vh);
-  left: 2rem;
   outline: 0.25rem solid transparent;
+  border-radius: .5rem;
+  padding: 0.25rem .75rem;  
+  max-width: calc(8rem);
+  background: var(--danger);
+  color: var(--background) !important;
+  font-weight: bold;
 
   transition: filter 0.4s ease-in-out, outline 0.4s ease-in-out;
 
@@ -29,12 +28,11 @@ export const LiveButton = styled.button`
   }
 `;
 
-export const LiveContainer = styled.div<LiveContainerProps>`
+export const LiveContainer = styled(Rnd)<LiveContainerProps>`
   z-index: 200;
   display: ${(props) => (props.isVisible ? "flex" : "none")};
-  top: 4rem;
-  position: -webkit-sticky;
-  position: relative;
+  top: 5.5rem;  
+  position: absolute;
   border-radius: 0.5rem;
   overflow: hidden;
   resize: both;
@@ -43,7 +41,8 @@ export const LiveContainer = styled.div<LiveContainerProps>`
   min-height: calc(9rem * 1.5);
 
   > iframe {
-    flex: 1;
+    width: 100%;
+    height: 100%;
     position: relative;
     min-width: calc(16rem * 1.5);
     min-height: calc(9rem * 1.5);

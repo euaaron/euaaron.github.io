@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
-export const ProjectsContainer = styled.main`
+export const ProjectsContainer = styled.section`  
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
-  max-width: 100vw;
-  min-height: 100vh;
+  gap: 1rem;  
   padding: 2rem 1rem 4rem;
-  text-align: center;
+  text-align: center;  
 `;
 
 export const SearchProject = styled.label`
@@ -64,19 +62,19 @@ export const SearchProject = styled.label`
   }
 `;
 
-export const ProjectsList = styled.section`
-  flex: 1;
+export const ProjectsList = styled.main`
+  flex: 6;  
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: space-between;  
   gap: 1.5rem;
   
-  > ul {
+  > ul {    
     display: flex;
     flex-flow: row wrap;
-    align-items: stretch;
-    align-self: center;
+    align-items: flex-start;
+    align-self: flex-start;
     justify-content: center;
     gap: 0.5rem;
 

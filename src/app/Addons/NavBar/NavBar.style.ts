@@ -13,13 +13,21 @@ export const NavBarContainer = styled.nav`
   width: 100%;
   top: 0;
   padding: 1rem 2rem 1rem 1.25rem;
+  max-height: 3.5rem;
 
   background: var(--background);
 
   transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 
-  > button {
-    color: var(--primary);
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    > button {
+      color: var(--primary);
+    }
   }
 
   > aside {
@@ -57,7 +65,7 @@ export const NavBarContainer = styled.nav`
       height: 100vh;
       min-width: fit-content;
       border-left: 1px solid var(--disabled);
-      backdrop-filter: blur(1rem);      
+      backdrop-filter: blur(1rem);
 
       button.toggleMenu {
         top: 0;
@@ -84,7 +92,7 @@ export const NavBarContainer = styled.nav`
       }
 
       &.active {
-        display: flex;        
+        display: flex;
       }
     }
   }

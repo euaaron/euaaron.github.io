@@ -73,7 +73,7 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
   render(): React.ReactNode {
     return (
       <NavBarContainer>
-        {this.props.children}
+        <div>{this.props.children}</div>
         <button
           title="Abrir Menu"
           className="toggleMenu"

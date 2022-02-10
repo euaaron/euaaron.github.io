@@ -3,6 +3,7 @@ import { BorderDiv } from "../shared/components/BorderDiv/BorderDiv";
 import { SidedHeader } from "../shared/components/SidedContainer/SidedContainer.style";
 
 export const SkillsContainer = styled.section`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,19 +31,19 @@ export const SkillsContainer = styled.section`
 `;
 
 export const SkillsHeader = styled(SidedHeader)`
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   max-width: 40%;
 
   @media (max-width: 900px) {
-    flex: 0;
+    flex: 1;
   }
 `;
 
 export const SkillsBox = styled(BorderDiv)`
   overflow: hidden;
-  flex: 3;
+  flex: 4;
   display: flex;
   align-items: center;
   justify-content: space;
