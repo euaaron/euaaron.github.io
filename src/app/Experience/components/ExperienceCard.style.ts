@@ -54,6 +54,9 @@ export const ExperienceCardHeader = styled.header<IExperienceCardProps>`
 
     > strong {
       color: ${(props) => getColor(props.color) || "var(--primary)"};
+      font-weight: normal;
+      line-height: 1.2rem;
+      height: 1.2rem;
     }
   }
 
@@ -68,14 +71,16 @@ export const ExperienceCardContainer = styled(BorderDiv)`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-
+  justify-content: space-between;
   overflow: hidden;
   gap: 0.5rem;
 
+  padding: 0.75rem;
+
   > p {
-    display: block;
-    max-height: 3.5rem;
+    flex: 1;
+    display: flex;
+    max-height: 4.8rem;
     overflow: hidden;
     text-align: justify;
     text-indent: 2rem;

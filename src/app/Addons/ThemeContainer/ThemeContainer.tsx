@@ -1,5 +1,5 @@
 import React from "react";
-import { Moon, Sun } from "react-feather";
+import { FiMoon, FiSun } from "react-icons/fi";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../../shared/assets/styles/global";
 import TimeUtils from "../../shared/utils/time";
@@ -46,7 +46,7 @@ export class ThemeContainer extends React.Component<{}, ThemeState> {
         <GlobalStyle />
         <NavBar>
           <button onClick={() => this.toggleTheme()} title="Alterar Tema">
-            {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
+            {this.state.theme === DarkTheme ? <FiMoon /> : <FiSun />}
           </button>
           <LivePlayer />
         </NavBar>

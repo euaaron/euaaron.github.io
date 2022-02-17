@@ -9,22 +9,25 @@ export const HomeContainer = styled.section`
   position: relative;
 
   width: 100%;
-  height: calc(100% - 3.5rem);
+  height: calc(100%);
   padding: 1rem;
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    bottom: 0;
+    width: 98vw;
     height: 100%;
 
-    background: url(${Background}) no-repeat center bottom fixed;
+    background: url(${Background}) no-repeat;
     background-color: #000;
+    background-position: center bottom;
     background-size: 90vmin;
+    ${({ theme }) =>
+      theme.type === "light" &&
+      "border-radius: 35vmin; width: 90vmin; height: 90vmin; left: calc(50% - 45vmin); background-position: center center;"}
     mix-blend-mode: ${({ theme }) =>
-      theme.type === "light" ? "screen" : "lighten"};
+      theme.type === "light" ? "normal" : "lighten"};
     z-index: -1;
 
     transition: background 0.4s ease-in-out;

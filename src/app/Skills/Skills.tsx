@@ -3,7 +3,7 @@ import { MainTitle } from "../shared/components/MainTitle/MainTitle";
 import { ISkillModel } from "./models/SkillModel";
 import { SkillsService } from "./services/SkillsService";
 import { SkillBar } from "./SkillBar/SkillBar";
-import { SkillsBox, SkillsContainer, SkillsHeader } from "./Skills.style";
+import { SkillsBox, SkillsContainer, SkillsHeader, SkillTooltip } from "./Skills.style";
 
 type ISkillsState = {
   skillsList: ISkillModel[];
@@ -46,7 +46,7 @@ export class Skills extends React.Component<{}, ISkillsState> {
               {this.state.skillsList.map((skill: ISkillModel, index) => {
                 return (
                   <li key={index}>
-                    <span>{legends.find(legend => legend.level === skill.level)?.name}</span>
+                    <SkillTooltip posX={skill.level}>{legends.find(legend => legend.level === skill.level)?.name}</SkillTooltip>
                     <SkillBar skillLevel={skill.level} skillName={skill.name} />
                   </li>
                 );

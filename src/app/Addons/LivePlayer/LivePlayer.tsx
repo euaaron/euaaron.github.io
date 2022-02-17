@@ -1,5 +1,5 @@
 import React from "react";
-import { XCircle, Youtube } from "react-feather";
+import { FiXCircle, FiYoutube } from "react-icons/fi";
 import { IService } from "../../shared/http/services/IService";
 import { ServiceLoader } from "../../shared/http/services/ServiceLoader";
 import { LiveButton, LiveContainer } from "./LivePlayer.style";
@@ -72,7 +72,7 @@ export class LivePlayer extends React.Component<{}, LivePlayerState> {
       >
         <div className="player-handle">
           <button onClick={() => this.setState({ isClosed: !isClosed })}>
-            <XCircle />
+            <FiXCircle />
           </button>
         </div>
         {isVisible && (
@@ -85,7 +85,7 @@ export class LivePlayer extends React.Component<{}, LivePlayerState> {
       </LiveContainer>
     ) : isClosed ? (
       <LiveButton onClick={() => this.setState({ isClosed: !isClosed })}>
-        <Youtube />
+        <FiYoutube />
         Ao-vivo
       </LiveButton>
     ) : (

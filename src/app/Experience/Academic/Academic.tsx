@@ -48,7 +48,7 @@ export class AcademicExperience extends React.Component<{}, IAcademicState> {
                   startDate={experience.startDate}
                   endDate={experience.endDate}
                 >
-                  <p>{experience.description}</p>
+                  {experience.description}
                 </ExperienceCard>
               </li>
             );

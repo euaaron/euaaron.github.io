@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, X } from "react-feather";
+import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { NavBarContainer, NavBarItem } from "./NavBar.style";
 
@@ -97,7 +97,7 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
           className="toggleMenu"
           onClick={() => this.toggleMenu()}
         >
-          <Menu />
+          <FiMenu />
         </button>
         <aside className={this.state.isVisible ? "active" : ""}>
           <button
@@ -105,7 +105,7 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
             className="toggleMenu"
             onClick={() => this.toggleMenu()}
           >
-            <X />
+            <FiX />
           </button>
           <ul>
             {this.state.pages.map((page) => (

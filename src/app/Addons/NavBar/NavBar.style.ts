@@ -8,7 +8,7 @@ export const NavBarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  position: fixed;
   z-index: 20;
   width: 100%;
   top: 0;

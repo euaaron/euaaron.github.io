@@ -38,7 +38,7 @@ export const AcademicDataMock: IExperienceData[] = [
     title: "Web Design",
     institution: "Prime System - Curso de Formação Profissional",
     type: "Profissionalizante",
-    color: "red",
+    color: "blue",
     logo: "https://pbs.twimg.com/profile_images/553601835/Logo_prime_twitter_400x400.jpg",    
     startDate: "JAN 2011",
     endDate: "JUL 2012",

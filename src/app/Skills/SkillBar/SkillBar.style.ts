@@ -26,7 +26,7 @@ export const SkillBarContainer = styled.div<ISkillBarProps>`
   justify-content: center;
   gap: 0.25rem;
 
-  width: calc(20rem + (2px * 9));
+  width: calc(20rem + 18px);
   height: 2rem;
   text-indent: 0;
 
@@ -70,7 +70,6 @@ export const SkillBarContainer = styled.div<ISkillBarProps>`
         isFilled ? `calc(${length * 2}rem + (2px * ${length - 1}))` : "0"};
       background: ${(props) => getBackgroundColor(props.length)};
       border-radius: 0.25rem;
-
       transition: width 0.5s ease-in-out;
     }
 

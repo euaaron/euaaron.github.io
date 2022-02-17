@@ -8,7 +8,7 @@ export const SkillsContainer = styled.section`
   justify-content: center;
   align-items: center;
   padding: 2rem 2rem;
-  height: calc(100% - 3.5rem);
+  height: calc(100%);
 
   > div {
     flex: 1;
@@ -41,12 +41,11 @@ export const SkillsHeader = styled(SidedHeader)`
 `;
 
 export const SkillsBox = styled.div`
-  overflow: hidden;
   flex: 4;
   display: flex;
   align-items: center;
   justify-content: space;
-  padding: 2.5rem 2.5rem;
+  overflow: auto;
 
   > ul {
     display: flex;
@@ -55,40 +54,14 @@ export const SkillsBox = styled.div`
     align-items: center;
     flex-wrap: wrap;
     gap: 1.5rem;
+    overflow: auto;
 
     list-style: none;
-    padding: 0;
+    padding: 2rem 0;
     margin: 0;
 
     > li {
       position: relative;
-      > span {
-        z-index: 2;
-        display: none;
-        position: absolute;
-        top: -1.75rem;
-        right: 0;
-
-        font-weight: bold;
-        color: var(--background);
-        background: var(--foreground);
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-
-        &::before {
-          content: "";
-          z-index: -1;
-          display: block;
-          position: absolute;
-          bottom: -0.24rem;
-          height: 0.5rem;
-          left: 0.75rem;
-          width: 0.5rem;
-
-          background: var(--foreground);
-          transform: rotate(45deg);
-        }
-      }
 
       &:hover,
       &:focus,
@@ -98,5 +71,37 @@ export const SkillsBox = styled.div`
         }
       }
     }
+  }
+`;
+
+interface ISkillTooltipProps {
+  posX: number;
+}
+
+export const SkillTooltip = styled.span<ISkillTooltipProps>`
+  z-index: 2;
+  display: none;
+  position: absolute;
+  bottom: -1.75rem;
+  ${({posX}) => posX >= 7 ? "right: 0;" : `left: calc((${posX}rem * 2) + (${posX} * 2px) - 2rem);`};
+
+  font-weight: bold;
+  color: var(--background);
+  background: var(--foreground);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+
+  &::before {
+    content: "";
+    z-index: -1;
+    display: block;
+    position: absolute;
+    top: -0.24rem;
+    height: 0.5rem;
+    ${({posX}) => posX >= 7 ? `right: calc((${10 - posX}rem * 2) - (${10 - posX} * 1px) + 2px);` : "left: calc(2rem - 4px);"};
+    width: 0.5rem;
+
+    background: var(--foreground);
+    transform: rotate(45deg);
   }
 `;

@@ -1,29 +1,36 @@
-import { GitHub, Globe } from "react-feather";
-import { ProjectDTO } from "../../models/ProjectDTO";
+import { FiGithub, FiGlobe } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { CodeProject } from "../../services/model/CodeProject";
 import { ProjectCardStyle } from "./ProjectCard.style";
 
 interface ProjectCardProps {
-  project: ProjectDTO;
+  project: CodeProject;
   children?: React.ReactNode;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const projUrl = project.url.split("euaaron/")[1];
   return (
     <ProjectCardStyle>
-      <header>
-        <strong>{project.name}</strong>
-        <i className={`devicon-${project.language}-plain`} title={project.language?.toUpperCase()}></i>
-      </header>
-      <p>{project.description}</p>
+      <Link to={`/projects/${projUrl}`}>
+        <header>
+          <strong>{project.name}</strong>
+          <i
+            className={`devicon-${project.language}-plain`}
+            title={project.language?.toUpperCase()}
+          ></i>
+        </header>
+        <p>{project.description}</p>
+      </Link>
       <footer>
         <div>
           <a
-            href={project.html_url}
+            href={project.url}
             target="_blank"
             rel="noopener noreferrer"
             title="Veja o código do projeto no GitHub!"
           >
-            <GitHub />
+            <FiGithub />
           </a>
           {project.homepage && (
             <a
@@ -32,18 +39,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               title="Veja o projeto em produção!"
             >
-              <Globe />
+              <FiGlobe />
             </a>
           )}
         </div>
         <div>
           <span>
             <small>Criado em</small>
-            {project.created_at}
+            {project.createdAt}
           </span>
           <span>
             <small>Atualizado em</small>
-            {project.updated_at}
+            {project.updatedAt}
           </span>
         </div>
       </footer>

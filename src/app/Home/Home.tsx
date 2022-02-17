@@ -30,32 +30,34 @@ export class Home extends React.Component<{}, HomeState> {
   render(): React.ReactNode {
     const { socialMedia } = this.state;
     return (
-      <HomeContainer>
-        <HomeTitle>
-          <h1>Aaron Carneiro</h1>
-          <small>
-            <b>Desenvolvedor</b> Generalista
-          </small>
-        </HomeTitle>
-        {socialMedia.length > 0 && (
-          <SocialContainer>
-            <ul>
-              {socialMedia.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={item.title}
-                  >
-                    {item.icon}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </SocialContainer>
-        )}
-      </HomeContainer>
+      <>
+        <HomeContainer>
+          <HomeTitle>
+            <h1>Aaron Carneiro</h1>
+            <small>
+              <b>Desenvolvedor</b> Generalista
+            </small>
+          </HomeTitle>
+          {socialMedia.length > 0 && (
+            <SocialContainer>
+              <ul>
+                {socialMedia.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={item.title}
+                    >
+                      {item.icon}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </SocialContainer>
+          )}
+        </HomeContainer>
+      </>
     );
   }
 }

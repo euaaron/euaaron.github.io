@@ -9,9 +9,8 @@ export const AboutContainer = styled.section`
   justify-content: center;
   align-items: center;
   padding: 2rem 2rem;
-  max-height: calc(100vh - 5rem);
-  min-height: calc(100vh - 10rem);
-  min-width: 100vw;
+  width: 100%;
+  height: calc(100%);
 
   > div {
     flex: 1;
@@ -23,7 +22,7 @@ export const AboutContainer = styled.section`
     gap: 4rem;
 
     span {
-      color: var(--primary);
+      color: var(--secondary);      
     }
   }
   @media (max-width: 900px) {
