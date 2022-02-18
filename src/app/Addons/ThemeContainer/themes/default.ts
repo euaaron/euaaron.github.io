@@ -6,7 +6,7 @@ export const DarkTheme: DefaultTheme = {
   type: "dark",
   colors: {
     primary: "#50BBF6",
-    secondary: "#BD93F9",
+    secondary: "#CC93F9",
     title: "#DFE9F5",
     foreground: "#96BCF4",
     background: "#202034",
@@ -14,6 +14,7 @@ export const DarkTheme: DefaultTheme = {
     warning: "#F6B450",
     danger: "#E95A5A",
     disabled: "#9EB2CF",
+    gradient: "linear-gradient(45deg, #ca5959 0%, #5475db 50%, #5475db 100%)"
   },
 };
 
@@ -22,14 +23,15 @@ export const LightTheme: DefaultTheme = {
   name: "System Light",
   type: "light",
   colors: {
-    primary: "#50BBF6",
-    secondary: "#BD93F9",
+    primary: "#00ACDC",
+    secondary: "#FF7AA0",
     title: "#202034",
-    foreground: "#6272A4",
+    foreground: "#323264",
     background: "#DFE9F5",
-    success: "#7FEC8A",
+    success: "#64CA64",
     warning: "#F6B450",
     danger: "#E95A5A",
     disabled: "#9EB2CF",
+    gradient: "linear-gradient(45deg, #282A36 20%, #4625bb 45%, #4625bb 100%)"
   },
 };

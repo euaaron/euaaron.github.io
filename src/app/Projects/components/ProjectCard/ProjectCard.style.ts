@@ -9,25 +9,57 @@ export const ProjectCardStyle = styled(BorderDiv)`
   max-width: 85vw;
   overflow: hidden;
 
-  > header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+  outline: 0.25rem solid transparent;
+  transition: outline 0.3s ease-in-out;
 
-    padding: 0.25rem 0.5rem;
-
-    background: var(--background);
-    filter: ${({ theme }) =>
-      theme.type === "light" ? "brightness(0.8)" : "brightness(1.2)"};
+  &:hover,
+  &:focus {
+    outline: 0.25rem solid var(--disabled);
+    filter: brightness(1.2);
   }
 
-  > p {
+  > a {
     flex: 1;
-    align-self: center;
-    font-weight: normal;
-    text-align: center;
-    padding: 0.25rem 0.5rem;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+    > header {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      color: var(--title);
+
+      padding: 0.25rem 0.5rem;
+      backdrop-filter: blur(0.5rem);
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        background: var(--background);
+        filter: ${({ theme }) =>
+          theme.type === "light" ? "brightness(0.8)" : "brightness(1.2)"};
+      }
+    }
+
+    > p {
+      flex: 1;
+      align-self: center;
+      font-weight: normal;
+      text-align: center;
+      padding: 0.25rem 0.5rem;
+      color: var(--foreground);
+    }
   }
 
   > footer {
@@ -65,6 +97,7 @@ export const ProjectCardStyle = styled(BorderDiv)`
       display: flex;
       align-items: baseline;
       justify-content: flex-end;
+      text-align: left;
       gap: 0.5rem;
       padding-bottom: 0.25rem;
 
@@ -72,7 +105,7 @@ export const ProjectCardStyle = styled(BorderDiv)`
         display: flex;
         flex-direction: column;
 
-        color: var(--title);
+        color: var(--disabled);
         font-weight: bold;
 
         small {

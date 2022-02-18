@@ -1,6 +1,5 @@
 import React from "react";
-import { XCircle, Youtube } from "react-feather";
-import { Rnd } from "react-rnd";
+import { FiXCircle, FiYoutube } from "react-icons/fi";
 import { IService } from "../../shared/http/services/IService";
 import { ServiceLoader } from "../../shared/http/services/ServiceLoader";
 import { LiveButton, LiveContainer } from "./LivePlayer.style";
@@ -58,38 +57,35 @@ export class LivePlayer extends React.Component<{}, LivePlayerState> {
   render(): React.ReactNode {
     const { isVisible, liveUrl, isClosed } = this.state;
     return isVisible && !isClosed && liveUrl.includes("embed") ? (
-      <Rnd
+      <LiveContainer
+        id="live-player"
+        isVisible={isVisible || !isClosed}
         default={{
           x: 40,
-          y: window.innerHeight / 2 - 200,
-          width: 360,
-          height: 200,
+          y: 40,
+          width: 340,
+          height: 190,
         }}
         lockAspectRatio={true}
         dragHandleClassName="player-handle"
         bounds="parent"
       >
-        <LiveContainer id="live-player" isVisible={isVisible || !isClosed}>
-          <div className="player-handle">
-            {/* <button className="player-handle" type="button" title="Mover">
-                  <Move />
-                </button> */}
-            <button onClick={() => this.setState({ isClosed: !isClosed })}>
-              <XCircle />
-            </button>
-          </div>
-          {isVisible && (
-            <iframe
-              src={liveUrl + "&controls=0"}
-              title="Aaron está online no YouTube"
-              frameBorder="0"
-            />
-          )}
-        </LiveContainer>
-      </Rnd>
+        <div className="player-handle">
+          <button onClick={() => this.setState({ isClosed: !isClosed })}>
+            <FiXCircle />
+          </button>
+        </div>
+        {isVisible && (
+          <iframe
+            src={liveUrl + "&controls=0"}
+            title="Aaron está online no YouTube"
+            frameBorder="0"
+          />
+        )}
+      </LiveContainer>
     ) : isClosed ? (
       <LiveButton onClick={() => this.setState({ isClosed: !isClosed })}>
-        <Youtube />
+        <FiYoutube />
         Ao-vivo
       </LiveButton>
     ) : (

@@ -1,43 +1,17 @@
-import { ServiceLoader } from "../../shared/http/services/ServiceLoader";
-import { date } from "../../shared/utils/time";
-import { ProjectDTO } from "../models/ProjectDTO";
+import axios from "axios";
+import { PROJECTS_API } from "../../shared/configs/environment";
+import { StorageService } from "../../shared/configs/services/StorageService";
+import { IService } from "../../shared/http/services/IService";
+import { CodeProject } from "./model/CodeProject";
 
-export class ProjectService {
+export class ProjectService implements IService<CodeProject[]> {
   private static instance: ProjectService;
-  private projects: Promise<ProjectDTO[]>;
+  private storage: StorageService;
+  private projects: Promise<CodeProject[]>;
 
   private constructor() {
-    this.projects = this.loadProjects();
-  }
-
-  private loadProjects(): Promise<ProjectDTO[]> {
-    return ServiceLoader.getInstance().getService("repository").getAll();
-  }
-
-  private transformProjectLanguage(projects: ProjectDTO[]): ProjectDTO[] {
-    return projects.map((project) => {
-      let language = project.language && project.language.toLowerCase();
-      const createdAt = date(new Date(project.created_at));
-      const updatedAt = date(new Date(project.updated_at));
-
-      if (language === "css") {
-        language = "css3";
-      }
-      return {
-        ...project,
-        language,
-        created_at: createdAt,
-        updated_at: updatedAt,
-      };
-    });
-  }
-
-  private orderProjectByLastUpdate(repos: ProjectDTO[]): ProjectDTO[] {
-    return repos.sort((a: ProjectDTO, b: ProjectDTO) => {
-      return (
-        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-      );
-    });
+    this.storage = StorageService.getInstance();
+    this.projects = this.getAll();
   }
 
   public static getInstance(): ProjectService {
@@ -47,15 +21,73 @@ export class ProjectService {
     return ProjectService.instance;
   }
 
-  public getProjects(): Promise<ProjectDTO[]> {
-    try {
-      const projects = this.projects
-        .then((projects) => this.transformProjectLanguage(projects))
-        .then((projects) => this.orderProjectByLastUpdate(projects));
-      return projects;
-    } catch (err) {
-      console.log(err);
-      return new Promise((resolve) => resolve([]));
+  public getInstance(): ProjectService {
+    return ProjectService.getInstance();
+  }
+
+  /**
+   * @description
+   * @returns Promise<CodeProject[]>
+   */
+  public async getAll(): Promise<CodeProject[]> {
+    let allProjects: CodeProject[] = await this.projects;
+    if (!allProjects || allProjects.length === 0) {
+      const cached: CodeProject[] = await this.getFromLocalStorage();
+      if (cached && cached.length > 0) {
+        allProjects = JSON.parse(String(cached));
+      } else {
+        allProjects = await this.getUpdates();
+      }
     }
+    const projToLower = allProjects.map((project) => {
+      return {
+        ...project,
+        language: project.language?.toLowerCase(),
+      }
+    });
+    return Promise.resolve(projToLower);
+  }
+
+  /**
+   * @method getUpdates
+   * @description Get all projects from ProjectService or from cache
+   * @returns Promise<CodeProject[]>
+   */
+  public async getUpdates(): Promise<CodeProject[]> {
+    return new Promise(async () => {
+      const api = axios.create({ baseURL: PROJECTS_API, responseType: "json" });
+      await api.get("/projects")
+        .then((resp) => {          
+          const response = resp.data;
+          return response;
+        })
+        .then((data) => {
+          const projects: CodeProject[] = data;
+          this.setProjects(projects);
+          return projects;
+        })
+        .catch((err) => {
+          return [];
+        });
+    });
+  }
+
+  private getFromLocalStorage(): Promise<CodeProject[]> {
+    const hasProjects = this.storage.hasStored("projects");
+    if (hasProjects) {
+      const projects = this.storage.getItem("projects");
+      return JSON.parse(projects);
+    }
+    return Promise.resolve([]);
+  }
+
+  /**
+   * @method setProjects
+   * @description Set the projects in the local storage
+   * @param projects
+   */
+  private async setProjects(projects: CodeProject[]): Promise<void> {
+    this.projects = Promise.resolve(projects);
+    this.storage.setItem("projects", JSON.stringify(projects));
   }
 }

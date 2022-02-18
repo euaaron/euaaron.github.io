@@ -1,34 +1,35 @@
 import styled from "styled-components";
-import Background from "../shared/assets/images/background.jpg";
 
 export const HomeContainer = styled.section`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  position: relative;  
+  position: relative;
 
   width: 100%;
-  height: calc(100vh - 5.05rem);
+  height: calc(100%);
   padding: 1rem;
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    bottom: 0;
+    width: 98vw;
     height: 100%;
 
-    background: url(${Background}) no-repeat center bottom fixed;
+    background: url('https://github.com/euaaron.png') no-repeat;
     background-color: #000;
+    background-position: center bottom;
     background-size: 90vmin;
+    ${({ theme }) =>
+      theme.type === "light" &&
+      "border-radius: 35vmin; width: 90vmin; height: 90vmin; left: calc(50% - 45vmin); background-position: center center;"}
     mix-blend-mode: ${({ theme }) =>
-      theme.type === "light" ? "overlay" : "lighten"};
-    ${({ theme }) => theme.type === "light" && "filter: brightness(1.6)"};
+      theme.type === "light" ? "normal" : "lighten"};
     z-index: -1;
 
-    transition: all 0.4s ease-in-out;
+    transition: background 0.4s ease-in-out;
 
     @media (max-width: 768px) {
       background-size: 60vmax;
@@ -53,7 +54,7 @@ export const HomeTitle = styled.header`
   > h1 {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(45deg, #ca5959 0%, #5475db 50%, #5475db 100%);
+    background: var(--gradient);
     -webkit-text-stroke: 0.15rem transparent;
     -webkit-background-clip: text;
     font-weight: bold;

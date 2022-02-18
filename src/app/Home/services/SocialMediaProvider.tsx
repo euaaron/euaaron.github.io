@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { GitHub, Linkedin, Mail, Youtube } from "react-feather";
+import { FiGithub, FiLinkedin, FiMail, FiYoutube } from "react-icons/fi";
 import { ReactComponent as Rocketseat } from "../../shared/assets/icons/rocket.svg";
-
 
 export interface ISocialMedia {
   name: string;
@@ -33,25 +32,25 @@ export class SocialMediaProvider {
           name: "mail",
           url: "mailto:hello@aaroncarneiro.com",
           title: "Email",
-          icon: <Mail />,
+          icon: <FiMail />,
         },
         {
           name: "linkedin",
           url: "https://www.linkedin.com/in/aaron-carneiro/",
           title: "LinkedIn",
-          icon: <Linkedin />,
+          icon: <FiLinkedin />,
         },
         {
           name: "github",
           url: "https://github.com/euaaron",
           title: "GitHub",
-          icon: <GitHub />,
+          icon: <FiGithub />,
         },
         {
           name: "youtube",
           url: "https://www.youtube.com/user/relbeits",
           title: "YouTube",
-          icon: <Youtube />,
+          icon: <FiYoutube />,
         },
         {
           name: "rocketseat",

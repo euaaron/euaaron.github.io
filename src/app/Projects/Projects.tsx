@@ -1,20 +1,20 @@
 import React from "react";
-import { RefreshCw, Search } from "react-feather";
+import { FiRefreshCw, FiSearch } from "react-icons/fi";
 import { MainTitle } from "../shared/components/MainTitle/MainTitle";
 import { ProjectCard } from "./components/ProjectCard/ProjectCard";
-import { ProjectDTO } from "./models/ProjectDTO";
 import {
   ErrorContainer,
   ProjectsContainer,
+  ProjectsHeader,
   ProjectsList,
   SearchProject
 } from "./Projects.style";
+import { CodeProject } from "./services/model/CodeProject";
 import { ProjectService } from "./services/ProjectService";
 
 type ProjectState = {
-  hasLoaded: boolean;
-  filteredProjects: ProjectDTO[];
-  projects: ProjectDTO[];
+  filteredProjects: CodeProject[];
+  projects: CodeProject[];
   search: string;
 };
 
@@ -22,7 +22,6 @@ export class Projects extends React.Component<{}, ProjectState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      hasLoaded: false,
       filteredProjects: [],
       projects: [],
       search: "",
@@ -30,23 +29,22 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   componentDidMount() {
-    this.handleProjects();
+    this.updateProjects();
+    setTimeout(() => {
+      if (this.state.projects.length === 0) {
+        this.updateProjects();
+      }
+    }, 600);
   }
 
-  initProjects() {
+  updateProjects() {
     ProjectService.getInstance()
-      .getProjects()
+      .getAll()
       .then((data) => {
-        this.setState({ projects: data });
-        this.setState({ filteredProjects: data });
+        const projects: CodeProject[] = data;
+        this.setState({ projects });
+        this.setState({ filteredProjects: projects });
       });
-  }
-
-  handleProjects() {
-    if (!this.state.hasLoaded) {
-      this.initProjects();
-      this.setState({ hasLoaded: true });
-    }
   }
 
   handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
@@ -74,27 +72,31 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   render(): React.ReactNode {
-    const isVisible = this.state.projects.length === 0 ? false : true;
+    const { search, projects, filteredProjects } = this.state;
+    const isVisible = projects.length === 0 ? false : true;
+
     return (
       <ProjectsContainer>
-        <MainTitle>Projetos</MainTitle>
         {isVisible ? (
           <ProjectsList>
-            <SearchProject htmlFor="searchProjects">
-              <input
-                id="searchProjects"
-                name="searchProjects"
-                type="text"
-                value={this.state.search}
-                onChange={(e) => this.handleSearch(e)}
-              />
-              <span title="Pesquisar projeto">
-                <Search />
-              </span>
-            </SearchProject>
+            <ProjectsHeader>
+              <MainTitle>Projetos</MainTitle>
+              <SearchProject htmlFor="searchProjects">
+                <input
+                  id="searchProjects"
+                  name="searchProjects"
+                  type="text"
+                  value={search}
+                  onChange={(e) => this.handleSearch(e)}
+                />
+                <span title="Pesquisar projeto">
+                  <FiSearch />
+                </span>
+              </SearchProject>
+            </ProjectsHeader>
             <ul>
-              {this.state.filteredProjects?.map((project) => (
-                <li key={project.full_name}>
+              {filteredProjects?.map((project) => (
+                <li key={project.fullName}>
                   <ProjectCard project={project} />
                 </li>
               ))}
@@ -107,10 +109,10 @@ export class Projects extends React.Component<{}, ProjectState> {
               Erro ao buscar dados do GitHub. Volte novamente mais tarde.
             </strong>
             <button
-              onClick={() => this.initProjects()}
+              onClick={() => this.updateProjects()}
               title="Forçar Atualização"
             >
-              <RefreshCw />
+              <FiRefreshCw />
               Forçar atualização
             </button>
           </ErrorContainer>

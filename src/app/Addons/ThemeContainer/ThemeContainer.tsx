@@ -1,10 +1,11 @@
 import React from "react";
-import { Moon, Sun } from "react-feather";
+import { FiMoon, FiSun } from "react-icons/fi";
 import { DefaultTheme, ThemeProvider } from "styled-components";
-import { NavBar } from "../../NavBar/NavBar";
 import { GlobalStyle } from "../../shared/assets/styles/global";
-import { DarkTheme, LightTheme } from "../../shared/configs/themes/default";
 import TimeUtils from "../../shared/utils/time";
+import { LivePlayer } from "../LivePlayer/LivePlayer";
+import { NavBar } from "../NavBar/NavBar";
+import { DarkTheme, LightTheme } from "./themes/default";
 
 type ThemeState = {
   theme: DefaultTheme;
@@ -15,6 +16,10 @@ export class ThemeContainer extends React.Component<{}, ThemeState> {
   constructor(props: any) {
     super(props);
     this.state = { theme: DarkTheme, hasPreferences: false };
+  }
+
+  componentDidMount() {
+    this.setTheme();
   }
 
   setTheme() {
@@ -41,8 +46,9 @@ export class ThemeContainer extends React.Component<{}, ThemeState> {
         <GlobalStyle />
         <NavBar>
           <button onClick={() => this.toggleTheme()} title="Alterar Tema">
-            {this.state.theme === DarkTheme ? <Moon /> : <Sun />}
+            {this.state.theme === DarkTheme ? <FiMoon /> : <FiSun />}
           </button>
+          <LivePlayer />
         </NavBar>
         {this.props.children}
       </ThemeProvider>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, X } from "react-feather";
+import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { NavBarContainer, NavBarItem } from "./NavBar.style";
 
@@ -14,6 +14,7 @@ type Page = {
   name: string;
   path: string;
   isActive: boolean;
+  dropdown?: Page[];
 };
 
 interface NavBarProps {
@@ -29,10 +30,31 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
       isVisible: false,
       pages: [
         { name: "Início", path: "/", isActive: false },
+        { name: "Habilidades", path: "/skills", isActive: false },
+        {
+          name: "Experiência",
+          path: "/experience",
+          isActive: false,
+          dropdown: [
+            {
+              name: "Acadêmica",
+              path: "/experience/academic",
+              isActive: false,
+            },
+            {
+              name: "Profissional",
+              path: "/experience/professional",
+              isActive: false,
+            },
+          ],
+        },
         { name: "Projetos", path: "/projects", isActive: false },
         { name: "Sobre", path: "/about", isActive: false },
       ],
     };
+  }
+
+  componentDidMount() {
     this.handleActivePage();
   }
 
@@ -69,14 +91,22 @@ export class NavBar extends React.Component<NavBarProps, NavigationState> {
   render(): React.ReactNode {
     return (
       <NavBarContainer>
-        {this.props.children}
-        <button title="Abrir Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
-          <Menu />
+        <div>{this.props.children}</div>
+        <button
+          title="Abrir Menu"
+          className="toggleMenu"
+          onClick={() => this.toggleMenu()}
+        >
+          <FiMenu />
         </button>
-        <aside className={this.state.isVisible ? 'active' : ''}>
-        <button title="Fechar Menu" className="toggleMenu" onClick={() => this.toggleMenu()}>
-          <X />
-        </button>
+        <aside className={this.state.isVisible ? "active" : ""}>
+          <button
+            title="Fechar Menu"
+            className="toggleMenu"
+            onClick={() => this.toggleMenu()}
+          >
+            <FiX />
+          </button>
           <ul>
             {this.state.pages.map((page) => (
               <NavBarItem

@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --warning: ${(props) => props.theme.colors.warning};
     --danger: ${(props) => props.theme.colors.danger};
     --disabled: ${(props) => props.theme.colors.disabled};
+    --gradient: ${(props) => props.theme.colors.gradient};    
   }
 
   ::-webkit-scrollbar {
@@ -24,6 +25,11 @@ export const GlobalStyle = createGlobalStyle`
     height: 0.5rem;
     background: var(--primary);
     border-radius: 1rem;
+  }
+
+  ::selection {
+    background: ${({theme})=> theme.type === 'light' ? '#22222f' : '#f2f2ff'};
+    color: ${({theme})=> theme.type === 'light' ? '#f2f2ff' : '#22222f'};
   }
   
   html, body, div, main, aside, nav, header, footer, p, 
@@ -56,7 +62,13 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--background);
     
     transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+
+    > div#root {
+      width: 100%;
+      height: 100vh;
+    }
   }
+
   
   body, input, button, textarea {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
