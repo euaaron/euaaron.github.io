@@ -25,7 +25,7 @@ export function Project() {
     ProjectService.getInstance()
       .getAll()
       .then((data: CodeProject[]) => {
-        const projects: CodeProject[] = JSON.parse(String(data as unknown));
+        const projects: CodeProject[] = data;
         const project = projects.find((p) => p.name === String(name));
         if (project) {
           setProject(project);
