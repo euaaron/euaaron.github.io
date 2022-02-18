@@ -30,13 +30,18 @@ export class Projects extends React.Component<{}, ProjectState> {
 
   componentDidMount() {
     this.updateProjects();
+    setTimeout(() => {
+      if (this.state.projects.length === 0) {
+        this.updateProjects();
+      }
+    }, 600);
   }
 
   updateProjects() {
     ProjectService.getInstance()
       .getAll()
       .then((data) => {
-        const projects: CodeProject[] = JSON.parse(String(data ));
+        const projects: CodeProject[] = data;
         this.setState({ projects });
         this.setState({ filteredProjects: projects });
       });
@@ -67,7 +72,7 @@ export class Projects extends React.Component<{}, ProjectState> {
   }
 
   render(): React.ReactNode {
-    const { search, projects, filteredProjects} = this.state;
+    const { search, projects, filteredProjects } = this.state;
     const isVisible = projects.length === 0 ? false : true;
 
     return (

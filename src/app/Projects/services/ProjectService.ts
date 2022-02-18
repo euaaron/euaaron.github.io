@@ -48,9 +48,11 @@ export class ProjectService implements IService<CodeProject[]> {
    * @returns Promise<CodeProject[]>
    */
   public async getUpdates(): Promise<CodeProject[]> {
-    return Promise.resolve(
-      await axios(PROJECTS_API + "/projects")
+    return new Promise(async () => {
+      const api = axios.create({ baseURL: PROJECTS_API, responseType: "json" });
+      await api.get("/projects")
         .then((resp) => {
+          console.log(resp);
           const response = resp.data;
           return response;
         })
@@ -61,8 +63,8 @@ export class ProjectService implements IService<CodeProject[]> {
         })
         .catch((err) => {
           return [];
-        })
-    );
+        });
+    });
   }
 
   private getFromLocalStorage(): Promise<CodeProject[]> {
