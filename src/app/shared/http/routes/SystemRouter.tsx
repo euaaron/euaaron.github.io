@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { About } from "../../../About/About";
 import App from "../../../App";
 import { AcademicExperience } from "../../../Experience/Academic/Academic";
+import { AcademicDetails } from "../../../Experience/Academic/AcademicDetails/AcademicDetails";
 import { Home } from "../../../Home/Home";
 import { NotFound } from "../../../NotFound/NotFound";
 import { Project } from "../../../Projects/components/Project/Project";
@@ -17,6 +18,7 @@ export function SystemRouter() {
         <Route path="experience" element={<AcademicExperience />}>
           <Route path="academic" element={<AcademicExperience />} />
         </Route>
+        <Route path='/experience/:name' element={<AcademicDetails />}/>
         <Route path="projects" element={<Projects />}/>
         <Route path="projects/:name" element={<Project />} />          
         <Route path="skills" element={<Skills />} />

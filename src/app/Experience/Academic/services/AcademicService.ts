@@ -1,5 +1,6 @@
 import { IExperienceData } from "../../models/IExperienceData";
 import { AcademicDataMock } from "./AcademicDataMock";
+import { AcademicExtrasMock } from "./AcademicExtrasMock";
 
 export class AcademicService {
   private static instance: AcademicService;
@@ -33,8 +34,21 @@ export class AcademicService {
 
   public getAll(): Promise<IExperienceData[]> {
     return new Promise<IExperienceData[]>((resolve, reject) => {
-      const data = AcademicDataMock;
-      resolve(data.sort((a, b) => this.sortByEndDate(b, a)));
+      const data = AcademicDataMock.sort((a, b) => this.sortByEndDate(b, a));
+      const extras = AcademicExtrasMock;
+      const dataWithExtras = data
+        .map((academic) => {
+          const extra = extras.find((item) => item.owner === academic.url);
+          if (extra) {
+            if (academic.extras) {
+              academic.extras = [...academic.extras, extra];
+            } else {
+              academic.extras = [extra];
+            }
+          }
+          return academic;
+        });
+      resolve(dataWithExtras);
     });
   }
 }

@@ -27,7 +27,7 @@ export class AcademicExperience extends React.Component<{}, IAcademicState> {
     });
   }
 
-  render() {
+  render() {    
     return (
       <AcademicContainer>
         <header>
@@ -40,6 +40,7 @@ export class AcademicExperience extends React.Component<{}, IAcademicState> {
               <li>
                 <ExperienceCard
                   key={index}
+                  url={experience.url}
                   title={experience.title}
                   institution={experience.institution}
                   type={experience.type}

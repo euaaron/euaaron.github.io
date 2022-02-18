@@ -34,11 +34,11 @@ export const SkillList: ISkillModel[] = [
     name: "Desenvolvimento Back-End",
   },
   {
-    level: 4,
+    level: 5,
     name: "Banco de Dados Relacional",
   },
   {
-    level: 4,
+    level: 5,
     name: "Banco de Dados Não Relacional",
   },
   {

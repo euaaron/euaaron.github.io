@@ -34,6 +34,7 @@ export const ProjectStyle = styled.section`
       gap: 2rem;
 
       > h1 {
+        color: var(--title);
         font-size: 2.5rem;
       }
     }
@@ -41,49 +42,6 @@ export const ProjectStyle = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
-  }
-`;
-
-export const BreadcrumbStyle = styled.nav`
-  display: flex;
-  place-self: flex-start;
-
-  ul {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      list-style: none;
-
-      a {
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-        }
-      }
-
-      &:not(:last-child) {
-        text-transform: capitalize;
-        a {
-          color: var(--foreground);
-        }
-      }
-
-      &:last-child {
-        a {
-          color: var(--secondary);
-          font-weight: bold;
-        }
-      }
-    }
   }
 `;
 
@@ -131,7 +89,7 @@ export const ProjectMarkdownStyle = styled(BorderDiv)`
   }
 
   p {
-    text-indent: 1rem;   
+    text-indent: 1rem;
 
     > img {
       margin-left: -1rem;
@@ -151,7 +109,7 @@ export const ProjectMarkdownStyle = styled(BorderDiv)`
   h1,
   h2,
   h3 {
-    line-height: 3.5rem;    
+    line-height: 3.5rem;
   }
 
   code {
@@ -221,8 +179,8 @@ export const SimilarStyle = styled.div`
     position: absolute;
     z-index: 2;
     left: 0;
-    bottom: 0.5rem;
-    height: 4rem;
+    bottom: 1rem;
+    height: calc(7rem + 10vmin);
     width: 4rem;
     background: linear-gradient(to right, var(--background) 0%, #0000 100%);
   }
@@ -233,13 +191,13 @@ export const SimilarStyle = styled.div`
     position: absolute;
     z-index: 2;
     right: 0;
-    bottom: 0.5rem;
-    height: 4rem;
+    bottom: 1rem;
+    height: calc(7rem + 10vmin);
     width: 4rem;
     background: linear-gradient(to left, var(--background) 0%, #0000 100%);
   }
 
-  ul {
+  > ul {
     flex: 1;
     display: flex;
     flex-wrap: nowrap;
@@ -250,34 +208,21 @@ export const SimilarStyle = styled.div`
     overflow-x: auto;
     text-align: left;
     list-style: none;
+    min-height: calc(6rem + 10vmin);    
 
-    li {
+    > li {
+      flex: 1;
       display: flex;
-      min-width: max-content;
       align-items: center;
       list-style: none;
+      min-width: calc(16rem + 10vmin);
+      max-width: calc(16rem + 10vmin);
+      min-height: calc(6rem + 10vmin);
+
+      > div {
+        flex: 1;
+        min-height: calc(4rem + 10vmin);
+      }
     }
-  }
-`;
-
-export const SimilarItemStyle = styled(BorderDiv)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
-  gap: 0.5rem;
-
-  a {
-    color: var(--foreground);
-  }
-
-  span {
-    padding: 0 0.5rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    background: var(--foreground);
-    color: var(--background);
-    border: 1px solid var(--disabled);
-    opacity: 0.8;
   }
 `;

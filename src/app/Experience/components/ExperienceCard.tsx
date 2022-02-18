@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ExperienceCardContainer,
   ExperienceCardHeader
 } from "./ExperienceCard.style";
 
 interface IExperienceCardProps {
+  url?: string;
   title: string;
   institution: string;
   type?: string;
@@ -16,24 +18,36 @@ interface IExperienceCardProps {
 
 export class ExperienceCard extends React.Component<IExperienceCardProps> {
   render() {
+    const {
+      color,
+      title,
+      type,
+      institution,
+      children,
+      endDate,
+      logo,
+      startDate,
+      url,
+    } = this.props;
     return (
       <ExperienceCardContainer>
-        <ExperienceCardHeader color={this.props.color}>
+        <ExperienceCardHeader color={color}>
           <div>
-            <h3 title={this.props.title}>{this.props.title}</h3>
-            <strong title={this.props.institution}>
-              {this.props.institution}
-            </strong>
-            {this.props.type && <small>{this.props.type}</small>}
+            <h3 title={title}>{title}</h3>
+            <strong title={institution}>{institution}</strong>
+            {type && <small>{type}</small>}
           </div>
-          {this.props.logo && (
-            <img src={this.props.logo} alt={this.props.institution} />
-          )}
+          {logo && <img src={logo} alt={institution} title={institution} />}
         </ExperienceCardHeader>
-        <p title={String(this.props.children)}>{this.props.children}</p>
+        <p title={String(children)}>{children}</p>
         <footer>
-          {this.props.startDate && <small>{this.props.startDate}</small>}
-          {this.props.endDate && <small>{this.props.endDate}</small>}
+          {url && <Link to={`/experience/${url}`}>Veja mais</Link>}
+          {(startDate || endDate) && (
+            <span>
+              {startDate && <small>{startDate}</small>}
+              {endDate && <small>{endDate}</small>}
+            </span>
+          )}
         </footer>
       </ExperienceCardContainer>
     );

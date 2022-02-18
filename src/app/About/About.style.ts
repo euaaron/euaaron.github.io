@@ -22,11 +22,48 @@ export const AboutContainer = styled.section`
     gap: 4rem;
 
     span {
-      color: var(--secondary);      
+      color: var(--secondary);
     }
   }
+
+  > footer {
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    background: #14141b;
+    width: 100%;
+    color: var(--disabled);
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      &:not(:first-child) {
+        position: relative;
+        &::after {
+          z-index: 2;
+          content: "";
+          position: absolute;
+          display: block;
+          right: 50%;
+          bottom: -0.5rem;
+          width: 0;
+          height: 0.5rem;
+          transition: all 0.6s ease-in-out;
+        }
+        &:hover,
+        &:focus {
+          &::after {
+            right: 25%;
+            border-radius: 0.5rem;
+            width: 50%;
+            background: var(--secondary);
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: 900px) {
-    min-height: 0;    
+    min-height: 0;
 
     > div {
       flex-direction: column;
@@ -43,7 +80,7 @@ export const AboutHeader = styled(SidedHeader)`
   max-width: 40%;
 
   @media (max-width: 900px) {
-    max-width: 80%;    
+    max-width: 80%;
   }
 `;
 
@@ -54,7 +91,7 @@ export const AboutBox = styled(BorderDiv)`
   justify-content: space-evenly;
   align-items: space-evenly;
   gap: 1rem;
-  
+
   overflow: hidden;
   max-width: 1280px;
   text-indent: 2rem;

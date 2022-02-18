@@ -3,7 +3,27 @@ import { MainTitle } from "../shared/components/MainTitle/MainTitle";
 import { AboutBox, AboutContainer, AboutHeader } from "./About.style";
 
 export class About extends React.Component {
+  private techs = [
+    {
+      name: "React, ",
+      url: "https://pt-br.reactjs.org/",
+    },
+    {
+      name: "React Router, ",
+      url: "https://reactrouter.com/",
+    },
+    {
+      name: "Typescript, ",
+      url: "https://www.typescriptlang.org/",
+    },
+    {
+      name: "Styled Components",
+      url: "https://www.styled-components.com/",
+    },
+  ];
+
   render() {
+    const currentYear = new Date().getFullYear();
     return (
       <AboutContainer>
         <div>
@@ -57,6 +77,29 @@ export class About extends React.Component {
             </p>
           </AboutBox>
         </div>
+        <footer>
+          <p>
+            {currentYear} - Desenvolvido por{" "}
+            <a
+              href="http://linkedin.com/in/aaron-carneiro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Aaron Carneiro
+            </a>
+            . Utilizando tecnologias como {" "}
+            {this.techs.map((tech) => (
+              <a
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {tech.name}
+              </a>
+            ))}            
+            .
+          </p>
+        </footer>
       </AboutContainer>
     );
   }

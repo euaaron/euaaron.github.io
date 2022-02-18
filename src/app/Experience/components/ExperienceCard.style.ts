@@ -61,8 +61,11 @@ export const ExperienceCardHeader = styled.header<IExperienceCardProps>`
   }
 
   > img {
+    object-fit: contain;
+    object-position: 50% 50%;
     height: 4rem;
-    padding: 0.5rem 0.75rem;
+    width: 4rem;
+    padding: 0.25rem;
     background: #f2f2f9;
   }
 `;
@@ -96,21 +99,47 @@ export const ExperienceCardContainer = styled(BorderDiv)`
 
   > footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     gap: 0.5rem;
 
-    > small {
-      text-transform: uppercase;
-      color: var(--disabled);
+    > a {
+      justify-self: flex-start;
+      background: var(--primary);
+      color: var(--background);
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      transition: all 0.4s ease-in-out;
 
-      ~ small {
-        display: flex;
-        gap: 0.5rem;
+      &:hover,
+      &:focus {
+        background: transparent;
+        color: var(--primary);
+        outline: solid 0.2rem var(--disabled);
+      }
+    }
 
-        &::before {
-          content: "•";
-          display: inline-block;
-          width: 0.5rem;
+    > span {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+
+      > small {
+        text-transform: uppercase;
+        color: var(--disabled);
+
+        ~ small {
+          display: flex;
+          gap: 0.5rem;
+
+          &::before {
+            content: "•";
+            display: inline-block;
+            width: 0.5rem;
+          }
         }
       }
     }

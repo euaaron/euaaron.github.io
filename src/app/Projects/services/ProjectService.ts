@@ -34,12 +34,18 @@ export class ProjectService implements IService<CodeProject[]> {
     if (!allProjects || allProjects.length === 0) {
       const cached: CodeProject[] = await this.getFromLocalStorage();
       if (cached && cached.length > 0) {
-        allProjects = cached;
+        allProjects = JSON.parse(String(cached));
       } else {
         allProjects = await this.getUpdates();
       }
     }
-    return Promise.resolve(allProjects);
+    const projToLower = allProjects.map((project) => {
+      return {
+        ...project,
+        language: project.language?.toLowerCase(),
+      }
+    });
+    return Promise.resolve(projToLower);
   }
 
   /**
@@ -51,8 +57,7 @@ export class ProjectService implements IService<CodeProject[]> {
     return new Promise(async () => {
       const api = axios.create({ baseURL: PROJECTS_API, responseType: "json" });
       await api.get("/projects")
-        .then((resp) => {
-          console.log(resp);
+        .then((resp) => {          
           const response = resp.data;
           return response;
         })
