@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Background from "../shared/assets/images/background.jpg";
 
 export const HomeContainer = styled.section`
   display: flex;
@@ -19,7 +18,7 @@ export const HomeContainer = styled.section`
     width: 98vw;
     height: 100%;
 
-    background: url(${Background}) no-repeat;
+    background: url('https://github.com/euaaron.png') no-repeat;
     background-color: #000;
     background-position: center bottom;
     background-size: 90vmin;
