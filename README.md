@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## // Sobre /
 
-## Available Scripts
+Este portfolio foi desenvolvido como trabalho final da disciplina de IHC. Além desse repositório, há 3 APIs que foram desenvolvidas para complementar o projeto, duas delas eu deixei como publicas no GitHub, e podem ser encontradas em:
 
-In the project directory, you can run:
+- [ProjectsAPI](https://github.com/euaaron/ProjectsAPI) - Uma API que busca projetos no GitHub, e adiciona ao retorno quais são os repositórios similares a cada um, com base nas tags e na linguagem predominante. A API foi desenvolvida para a página de projetos.
 
-### `yarn start`
+- [Live Checker API](https://github.com/euaaron/live-checker-api) - Uma API que verifica se um canal do YouTube está ao-vivo ou não. A API retorna um JSON com o status do canal e a URL para a live, caso ao-vivo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## // Principais Tecnologias /
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- NodeJS - um ambiente REPL de Javascript, que permite utilizar a linguagem no lado do backend, bem como melhora a produtividade para o desenvolvimento front-end, por meio da linha de comando.
 
-### `yarn test`
+- Typescript - Um "superset" de Javascript, que permite utilizar interfaces, herança, tipos, etc. o que permite ao desenvolvedor escrever código mais legível e organizado, bem como ao editor apontar os erros antes de executar o código.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- JavaScript - linguagem de programação nativa dos browsers, utilizada para desenvolver o front-end e o back-end, através do NodeJS.
 
-### `yarn build`
+- React - uma biblioteca que permite a criação de componentes reutilizáveis e reativos, para o desenvolvimento de interfaces através da união de HTML dentro do Javascript.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React Router DOM - biblioteca que permite a transição entre componentes React, simulando a navegação entre as páginas do site, e a tornando mais fluida.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Styled Components - uma biblioteca que permite criar estilos em React, que são aplicados aos componentes. Ela permite utilizar código javascript para criar estilos CSS dinâmicos e adaptáveis.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## // Scripts /
 
-### `yarn eject`
+O projeto foi inicializado com o [`Create React App`](https://create-react-app.dev/), e como não executei o `eject`, todos os scripts são os mesmos.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## // To do /
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] Adicionar vídeo de apresentação que apareça na primeira vez que o usuário acessa o site, e na página "sobre".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [ ] Adicionar formulário de contato.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [ ] Criar middleware para verificar contagem de acessos, bem como horário e localização, e salvar em um banco de dados.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ] Criar página de Blog
+  - [ ] Criar forma de adicionar conteúdo ao blog de maneira dinâmica.
+  - [ ] Implementar feed RSS no blog.
