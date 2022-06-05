@@ -5,13 +5,19 @@ commit_message=$(git log -1 --pretty=%B | cat)
 branch=$(git rev-parse --abbrev-ref HEAD | cat)
 version="patch"
 
+if $(echo $branch | grep -q "main")
+then
+  echo "Do not push to main branch, do a PR instead."
+  exit -1
+fi
+
 if $(echo $commit_message | grep -q "Release" || echo $commit_message | grep -q "version bump")
 then
   echo "Version Bump: skipping hook."
   exit 0
 fi
 
-if $(echo $branch == "main")
+if $(echo $commit_message | grep -q "!:")
 then
   version="major"
 elif $(echo $commit_message | grep -q "feat")
@@ -19,7 +25,7 @@ then
   version="minor"
 fi
 
-if $(echo $version == "major")
+if $(echo $version | grep -q "major")
 then
   yarn version --no-commit-hooks --$version
 else
