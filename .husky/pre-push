@@ -1,0 +1,31 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+commit_message=$(git log -1 --pretty=%B | cat)
+branch=$(git rev-parse --abbrev-ref HEAD | cat)
+version="patch"
+
+if $(echo $commit_message | grep -q "Release" || echo $commit_message | grep -q "version bump")
+then
+  echo "Version Bump: skipping hook."
+  exit 0
+fi
+
+if $(echo $branch == "main")
+then
+  version="major"
+elif $(echo $commit_message | grep -q "feat")
+then
+  version="minor"
+fi
+
+if $(echo $version == "major")
+then
+  yarn version --no-commit-hooks --$version
+else
+  yarn version --no-git-tag-version --no-commit-hooks --$version
+fi
+
+git add package.json
+version=$(node -p -e "require('./package.json').version")
+git commit -m "chore: version bump to v$version"
